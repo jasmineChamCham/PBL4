@@ -698,7 +698,7 @@ pre {
 .col-xxl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
+  padding-right: 0px;
   padding-left: 15px; }
 
 .col {
@@ -1598,7 +1598,7 @@ pre {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch; }
   .table-responsive > .table-bordered {
     border: 0; }
