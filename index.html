@@ -148,7 +148,7 @@
                     <div class="col-lg-6 col-sm-6">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h1 class="card-title">Load Average</h1>
+                                <h1 class="card-title">CPU Load Average</h1>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -186,177 +186,101 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-two card-body">
-                                <div class="stat-content">
-                                    <div class="stat-text">Hostname</div>
-                                    <div class="stat-digit" style="color: #A4DE02;">jasmineChamCham</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-two card-body">
-                                <div class="stat-content">
-                                    <div class="stat-text">IP Address</div>
-                                    <div class="stat-digit" style="color: #350480;">127.0.0.1</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-two card-body">
-                                <div class="stat-content">
-                                    <div class="stat-text">CPU Cores</div>
-                                    <div class="stat-digit" style="color: #D24E01;">4 physical, 8 virtual</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="stat-widget-two card-body">
-                                <div class="stat-content">
-                                    <div class="stat-text">Total RAM</div>
-                                    <div class="stat-digit" style="color: #CC252C;">16GB</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
-                    </div>
-                    <!-- /# column -->
                 </div>
+
                 <div class="row">
-                    <div class="col-xl-8 col-lg-8 col-md-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">CPU Load Average</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-8">
-                                        <div id="morris-bar-chart"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="col-lg-6 col-sm-6">
                         <div class="card">
                             <div class="card-body text-center">
-                                <div class="m-t-10">
-                                    <h4 class="card-title">Memory in use</h4>
-                                    <h2 class="mt-3">70%</h2>
+                                <h1 class="card-title">Devices by CPU Utilization</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th style="color: #737373; font-weight: 500;">Device name</th>
+                                                <th style="color: #737373; font-weight: 500;">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Zabbix-server 1</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zabbix-server 2</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zabbix-server 3</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="widget-card-circle mt-5 mb-5" id="info-circle-card">
-                                </div>
-                                <ul class="widget-line-list m-b-15">
-                                    <li class="border-right">70% <br><span class="text-success"><i
-                                                class="ti-hand-point-up"></i> Used</span></li>
-                                    <li>30% <br><span class="text-danger"><i
-                                                class="ti-hand-point-down"></i> Unused</span></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
+
+                    <div class="col-lg-6 col-sm-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> Raspberry Health</h4>
+                                <h4 class="card-title">Realtime CPU Utilization</h4>
                             </div>
                             <div class="card-body">
-                                <div class="current-progress">
-                                    <div class="progress-content py-2">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Load</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                                                            1.18
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content py-2">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Mem</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            11.6GB
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="progress-content py-2">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="progress-text">Disk</div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="current-progressbar">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-primary w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                                            24.11%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div id="flotRealtime1" class="flot-chart"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="testimonial-widget-one p-17">
-                                    <div class="testimonial-widget-one owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="testimonial-content">
-                                                <div class="testimonial-text">
-                                                    <i class="fa fa-quote-left"></i> Welcome you to our project!
-                                                    <i class="fa fa-quote-right"></i>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="media-body">
-                                                        <div class="testimonial-author">NGOC LINH - HOAI ANH - NGOC TRAM</div>
-                                                        <div class="testimonial-author-position">20Nh13
-                                                        </div>
-                                                    </div>
-                                                    <img class="testimonial-author-img ml-3" src="./images/avatar/1.png" alt="" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
-                
 
-            </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h1 class="card-title">Devices by Memory Utilization</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th style="color: #737373; font-weight: 500;">Device name</th>
+                                                <th style="color: #737373; font-weight: 500;">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Zabbix-server 1</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zabbix-server 2</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zabbix-server 3</td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Realtime Memory Utilization</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotRealtime2" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
         <!--**********************************
             Content body end
@@ -401,7 +325,11 @@
 
     <!--  flot-chart js -->
     <script src="./vendor/flot/jquery.flot.js"></script>
+    <script src="./vendor/flot/jquery.flot.pie.js"></script>
     <script src="./vendor/flot/jquery.flot.resize.js"></script>
+    <script src="./vendor/flot-spline/jquery.flot.spline.min.js"></script>
+    <script src="./js/plugins-init/flot-init.js"></script>
+
 
     <!-- Owl Carousel -->
     <script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>

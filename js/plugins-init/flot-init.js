@@ -445,12 +445,11 @@
 	});
 
 	var plot5 = $.plot('#flotRealtime2', [getRandomData()], {
-		colors: ['#44ecf5'],
+		colors: ['#2097E8'],
 		series: {
 			lines: {
 				show: true,
-				lineWidth: 0,
-				fill: 0.9
+				lineWidth: 1
 			},
 			shadowSize: 0	// Drawing is faster without shadows
 		},
