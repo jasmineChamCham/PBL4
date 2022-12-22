@@ -11,29 +11,27 @@
   	<servlet-class>controller.CheckLoginServlet</servlet-class>
   </servlet>
   <servlet>
-<<<<<<< HEAD
   	<servlet-name>Overview_Controller</servlet-name>
   	<display-name>Overview_Controller</display-name>
   	<description></description>
   	<servlet-class>controller.Overview_Controller</servlet-class>
-=======
+  </servlet>
+  <servlet>
   	<servlet-name>ChangePasswordServlet</servlet-name>
   	<display-name>ChangePasswordServlet</display-name>
   	<description></description>
   	<servlet-class>controller.ChangePasswordServlet</servlet-class>
->>>>>>> c578662ed8197088d67d63fe41e501833d590044
   </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
   	<servlet-name>Overview_Controller</servlet-name>
   	<url-pattern>/Overview_Controller</url-pattern>
-=======
+  </servlet-mapping>
+  <servlet-mapping>
   	<servlet-name>ChangePasswordServlet</servlet-name>
   	<url-pattern>/ChangePasswordServlet</url-pattern>
->>>>>>> c578662ed8197088d67d63fe41e501833d590044
   </servlet-mapping>
 </web-app>
