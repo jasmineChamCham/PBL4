@@ -10,16 +10,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Raspberry Monitoring Admin Dashboard</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./vendor/owc:\Users\WIN 10\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.htmll-carousel/css/owl.theme.default.min.css">
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
-    
 </head>
 
 <body>
+	
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
 	%>
     <!--*******************
@@ -81,11 +79,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="page-profile.jsp" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile</span>
-                                    </a>
-                                    <a href="./page-login.jsp" class="dropdown-item">
+                                    <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -112,18 +106,13 @@
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <!-- chinh lai duong dan -->
-                        <a href="page-display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                            class="icon icon-single-04"></i><span class="nav-text">Account</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="page-profile.jsp">Profile</a></li>
-                            <li><a href="page-change-password.jsp">Change password</a></li>
-                        </ul>
+                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
             </div>
@@ -159,32 +148,22 @@
                                 <div class="table-responsive">
                                     <table class="table table-responsive-sm">
                                         <thead>
-                                            <tr>
-                                                <th style="color: #737373; font-weight: 500;">Device name</th>
-                                                <th style="color: #737373; font-weight: 500;">1m</th>
-                                                <th style="color: #737373; font-weight: 500;">5m</th>
-                                                <th style="color: #737373; font-weight: 500;">15m</th>
+                                            <tr style="color: #737373; font-weight: 500;">
+                                                <th>Device name</th>
+                                                <th>1m</th>
+                                                <th>5m</th>
+                                                <th>15m</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                       		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td>Zabbix-server 1</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage1m())%></td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage5m())%></td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage15m())%></td>
                                             </tr>
-                                            <tr>
-                                                <td>Zabbix-server 2</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zabbix-server 3</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </div>
@@ -203,24 +182,18 @@
                                 <div class="table-responsive">
                                     <table class="table table-responsive-sm">
                                         <thead>
-                                            <tr>
-                                                <th style="color: #737373; font-weight: 500;">Device name</th>
-                                                <th style="color: #737373; font-weight: 500;">Value</th>
+                                            <tr style="color: #737373; font-weight: 500;">
+                                                <th>Device name</th>
+                                                <th>Value</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        	<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td>Zabbix-server 1</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getCPUutilization())%>%</td>
                                             </tr>
-                                            <tr>
-                                                <td>Zabbix-server 2</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zabbix-server 3</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </div>
@@ -230,7 +203,7 @@
 
                     <div class="col-lg-6 col-sm-6">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-body text-center">
                                 <h4 class="card-title">Realtime CPU Utilization</h4>
                             </div>
                             <div class="card-body">
@@ -250,24 +223,18 @@
                                 <div class="table-responsive">
                                     <table class="table table-responsive-sm">
                                         <thead>
-                                            <tr>
-                                                <th style="color: #737373; font-weight: 500;">Device name</th>
-                                                <th style="color: #737373; font-weight: 500;">Value</th>
+                                            <tr style="color: #737373; font-weight: 500;">
+                                                <th>Device name</th>
+                                                <th>Value</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                       		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td>Zabbix-server 1</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
+                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getMemoryUtilization())%>%</td>
                                             </tr>
-                                            <tr>
-                                                <td>Zabbix-server 2</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Zabbix-server 3</td>
-                                                <td class="color-primary" style="color: #350480; font-weight: 500;">21.56</td>
-                                            </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </div>
@@ -277,7 +244,7 @@
 
                     <div class="col-lg-6 col-sm-6">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-body text-center">
                                 <h4 class="card-title">Realtime Memory Utilization</h4>
                             </div>
                             <div class="card-body">
@@ -304,7 +271,22 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+	
+	<%
+		int avai = 0, unavai = 0, unknown = 0;
+		for (int i = 0; i < hosts.size(); i++)
+		{
+			if ((hosts.get(0).getAvailability()).equals("0"))
+				unknown++;
+			else if ((hosts.get(0).getAvailability()).equals("1"))
+				avai++;
+			else if ((hosts.get(0).getAvailability()).equals("2"))
+				unavai++;
+		}
+	%>
+	<input type="hidden" id="avai" name="avai" value="<%=avai%>">
+	<input type="hidden" id="unavai" name="unavai" value="<%=unavai%>">
+	<input type="hidden" id="unknown" name="unknown" value="<%=unknown%>">
     <!--**********************************
         Scripts
     ***********************************-->
@@ -315,27 +297,26 @@
 
     <!-- Chart Morris plugin files -->
     <script src="./vendor/raphael/raphael.min.js"></script>
-    <script src="./vendor/morris/morris.min.js"></script> 
+    <script src="./vendor/morris/morris.min.js"></script>
     <script language = "JavaScript">
 	    (function($) {
 	        "use strict"
-	
 	        
 	        Morris.Donut({
 	            element: 'morris_donught',
 	            data: [{
 	                label: "\xa0 \xa0 Available \xa0 \xa0",
-	                value: 5,
+	                value: document.getElementById("avai").value,
 	
 	            }, {
 	                label: "\xa0 \xa0 Not available \xa0 \xa0",
-	                value: 2
+	                value: document.getElementById("unavai").value,
 	            }, {
 	                label: "\xa0 \xa0 Unknown \xa0 \xa0",
-	                value: 1
+	                value: document.getElementById("unknown").value,
 	            }],
 	            resize: true,
-	            colors: ['rgb(112, 226, 145)', 'rgb(254, 102, 102)', 'rgb(197, 197, 197)']
+	            colors: ['rgb(104,185,132)', 'rgb(254, 102, 102)', 'rgb(197, 197, 197)']
 	        });
 	    })(jQuery);
     </script>
@@ -351,7 +332,7 @@
     <script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <!--  flot-chart js -->
-    <script src="./vendor/flot/jquery.flot.js"> </script>
+    <script src="./vendor/flot/jquery.flot.js"></script>
     <script src="./vendor/flot/jquery.flot.pie.js"></script>
     <script src="./vendor/flot/jquery.flot.resize.js"></script>
     <script src="./vendor/flot-spline/jquery.flot.spline.min.js"></script>

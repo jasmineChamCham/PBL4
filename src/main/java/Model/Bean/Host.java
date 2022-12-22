@@ -75,7 +75,7 @@ public class Host {
 		return this.ipAddress;
 	}
 
-	public void setMssv(String ipAddress) {
+	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
 	}
 

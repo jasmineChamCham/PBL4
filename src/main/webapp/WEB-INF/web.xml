@@ -8,7 +8,7 @@
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<display-name>CheckLoginServlet</display-name>
   	<description></description>
-  	<servlet-class>contoller.CheckLoginServlet</servlet-class>
+  	<servlet-class>controller.CheckLoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>

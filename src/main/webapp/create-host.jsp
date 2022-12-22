@@ -8,8 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Raspberry Monitoring Admin Dashboard</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="./css/style.css" rel="stylesheet">
 
@@ -76,7 +74,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page-login.jsb" class="dropdown-item">
+                                    <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -103,8 +101,7 @@
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <!-- chinh lai duong dan -->
-                        <a href="hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -126,35 +123,61 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Change password</h4>
+                        <h4 class="card-title">Create host</h4>
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
                             <form>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-password">Password
+                                    <label class="col-lg-4 col-form-label" for="val-hostname">Host name
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-password" name="val-password">
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" name="val-hostname" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password 
+                                    <label class="col-lg-4 col-form-label" for="val-templates">Templates
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password">
+                                    <div class="col-lg-12" class="bootstrap-badge">
+                                        <span class="badge badge-pill badge-info" style="background-color: #FFCAC8;">Linux by Zabbix agent</span>
+                                        <span class="badge badge-pill badge-info" style="background-color: #FFDBA4;">Linux by Zabbix agent active</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-groups">Groups
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-12" class="bootstrap-badge">
+                                        <span class="badge badge-pill badge-info" style="background-color: #C4DFAA;">Discovered hosts</span>
+                                        <span class="badge badge-pill badge-info" style="background-color: #C1EFFF;">Templates/Operating systems</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-ipaddress">IP Address
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" name="val-ipaddress" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-port">Port
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" name="val-port" value="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        <button type="submit" class="btn btn-light">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="reset" class="btn btn-light">Cancel</button>
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
