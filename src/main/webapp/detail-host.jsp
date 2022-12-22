@@ -39,7 +39,7 @@
                 Nav header start
             ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
             <img class="logo-abbr" src="./images/raspberry-pi.png" alt="" />
             <h2 style="color: #fff; margin-top: 12px; margin-left: 5px">PBL4</h2>
             </a>
@@ -111,7 +111,7 @@
             <ul class="metismenu" id="menu">
                 <li class="nav-label first">Main Menu</li>
                 <li>
-                <a href="index.jsp" aria-expanded="false">
+                <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon icon-globe-2"></i>
                     <span class="nav-text">Overview</span>
                 </a>

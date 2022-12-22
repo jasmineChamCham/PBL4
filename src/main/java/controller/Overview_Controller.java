@@ -1,10 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Model.BO.HostBO;
+import Model.Bean.Host;
 
 public class Overview_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -14,7 +21,15 @@ public class Overview_Controller extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String auth = request.getParameter("auth");
+		HttpSession session = request.getSession();
+		HostBO overviewBO = new HostBO();
+		session.setAttribute("auth", auth);
+		ArrayList<Host> hosts = overviewBO.getHosts(auth);
+		request.setAttribute("hosts", hosts);
+		request.setAttribute("auth", auth);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

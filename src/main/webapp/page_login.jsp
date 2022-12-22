@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Login Page</title>
     <link href="./css/style.css" rel="stylesheet">
-
 </head>
 
 <body class="h-100">
