@@ -104,4 +104,17 @@ public class ZabbixBO {
 		}
 		return hosts;
 	}
+	
+	public Host GetHostByHostID(String auth, String hostid)
+	{
+		ArrayList<Host> hosts = getHosts(auth);
+		for (int i = 0; i < hosts.size(); i++)
+		{
+			if (hosts.get(i).gethostId().equals(hostid))
+			{
+				return hosts.get(i);
+			}
+		}
+		return null;
+	}
 }
