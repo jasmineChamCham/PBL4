@@ -119,7 +119,7 @@
                 </li>
                 <li class="nav-label first">Account</li>
                 <li>
-                <a href="change-password.jsb" aria-expanded="false">
+                <a href="change-password.jsp" aria-expanded="false">
                     <i class="icon-key"></i>
                     <span class="nav-text">Change password</span>
                 </a>

@@ -160,7 +160,7 @@
                                                 </td>
                                                 <td>
                                                     <span>
-                                                        <a href="detail-host.jspl" class="mr-4" data-toggle="tooltip"
+                                                        <a href="detail-host.jsp" class="mr-4" data-toggle="tooltip"
                                                             data-placement="top" title="View detail">
                                                             <i class="fa fa-eye"></i> 
                                                         </a>
@@ -172,7 +172,7 @@
                                                             data-placement="top" title="Edit">
                                                             <i class="fa fa-pencil color-muted"></i> 
                                                         </a>
-                                                        <a href="confirm-delete.jspl" data-toggle="tooltip"
+                                                        <a href="confirm-delete.jsp" data-toggle="tooltip"
                                                             data-placement="top" title="Delete">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>
