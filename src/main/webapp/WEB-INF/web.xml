@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>controller.CheckLoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ChangePasswordServlet</servlet-name>
+  	<display-name>ChangePasswordServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.ChangePasswordServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ChangePasswordServlet</servlet-name>
+  	<url-pattern>/ChangePasswordServlet</url-pattern>
   </servlet-mapping>
 </web-app>
