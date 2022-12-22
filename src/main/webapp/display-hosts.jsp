@@ -157,7 +157,7 @@
                                        		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
                                                 <th><%=i+1%></th>
-                                                <td><%=hosts.get(i).getHostname()%></td>
+                                                <td><%=hosts.get(i).getHostName()%></td>
                                                 <td><%=hosts.get(i).getIpAddress()%>:<%=hosts.get(i).getPort()%></td>
                                                 <td>
                                                     <%if (hosts.get(i).getAvailability().equals("0")){%>
@@ -170,7 +170,7 @@
                                                 </td>
                                                 <td>
                                                     <span>
-                                                        <a href="DetailHostServlet?auth=<%=request.getAttribute("auth")%>&hostid=<%=hosts.get(i).gethostId()%>" class="mr-4" data-toggle="tooltip"
+                                                        <a href="DetailHostServlet?auth=<%=request.getAttribute("auth")%>&hostid=<%=hosts.get(i).getHostID()%>" class="mr-4" data-toggle="tooltip"
                                                             data-placement="top" title="View detail">
                                                             <i class="fa fa-eye"></i> 
                                                         </a>

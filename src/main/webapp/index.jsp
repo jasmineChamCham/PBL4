@@ -158,7 +158,7 @@
                                         <tbody>
                                        		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td><%=hosts.get(i).getHostName()%></td>
                                                 <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage1m())%></td>
                                                 <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage5m())%></td>
                                                 <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getLoadAverage15m())%></td>
@@ -190,7 +190,7 @@
                                         <tbody>
                                         	<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td><%=hosts.get(i).getHostName()%></td>
                                                 <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getCPUutilization())%>%</td>
                                             </tr>
                                             <% } %>
@@ -231,7 +231,7 @@
                                         <tbody>
                                        		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <td><%=hosts.get(i).getHostname() %></td>
+                                                <td><%=hosts.get(i).getHostName()%></td>
                                                 <td class="color-primary" style="color: #350480; font-weight: 500;"><%=String.format("%.5f", hosts.get(i).getMemoryUtilization())%>%</td>
                                             </tr>
                                             <% } %>

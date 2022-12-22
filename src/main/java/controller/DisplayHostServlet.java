@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.BO.ZabbixBO;
+import Model.BO.HostBO;
 import Model.Bean.Host;
 
 /**
@@ -32,7 +32,7 @@ public class DisplayHostServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String auth = request.getParameter("auth");
-		ZabbixBO loginBO = new ZabbixBO();
+		HostBO loginBO = new HostBO();
 		ArrayList<Host> hosts = loginBO.getHosts(auth);
 		request.setAttribute("hosts", hosts);
 		request.setAttribute("auth", auth);

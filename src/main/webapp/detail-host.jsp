@@ -173,7 +173,7 @@
                                                 class="form-control"
                                                 id="val-hostname"
                                                 name="val-hostname"
-                                                value="<%=host.getHostname()%>"
+                                                value="<%=host.getHostName()%>"
                                                 readonly
                                             />
                                         </div>

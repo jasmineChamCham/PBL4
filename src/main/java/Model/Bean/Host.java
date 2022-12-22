@@ -47,15 +47,15 @@ public class Host {
 		this.MemoryUtilization = 0;
 	}
 	
-	public String gethostId() {
+	public String getHostID() {
 		return this.hostId;
 	}
 
-	public void setId(String id) {
+	public void setHostID(String id) {
 		this.hostId = id;
 	}
 
-	public String getHostname() {
+	public String getHostName() {
 		return this.hostName;
 	}
 
@@ -86,6 +86,7 @@ public class Host {
 	public void setPort(String port) {
 		this.port = port;
 	}
+	
 	public long getNumberOfProcesses() {
 		return this.NumberOfProcesses;
 	}

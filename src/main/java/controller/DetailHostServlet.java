@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.BO.ZabbixBO;
+import Model.BO.HostBO;
 import Model.Bean.Host;
 
 /**
@@ -34,7 +34,7 @@ public class DetailHostServlet extends HttpServlet {
 		String auth = request.getParameter("auth");
 		String hostid = request.getParameter("hostid");
 //		System.out.println(hostid);
-		ZabbixBO detailHostBO = new ZabbixBO();
+		HostBO detailHostBO = new HostBO();
 		Host host = detailHostBO.GetHostByHostID(auth,hostid);
 		if (host != null)
 		{

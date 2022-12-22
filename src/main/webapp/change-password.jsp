@@ -127,29 +127,35 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-password">Password
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-password" name="val-password">
+                            <form class="form-valide-with-icon" action="ChangePasswordServlet" method="post">
+                                <div class="form-group">
+                                    <label class="text-label">Password</label>
+                                    <div class="input-group transparent-append">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input type="password" class="form-control" id="val-password1" name="_password" placeholder="Choose a safe one...">
+                                        <div class="input-group-append show-pass">
+                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-confirm-password">Confirm Password 
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <div class="col-lg-6">
-                                        <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password">
+                                <div class="form-group">
+                                    <label class="text-label">Confirm password</label>
+                                    <div class="input-group transparent-append">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                        </div>
+                                        <input type="password" class="form-control" id="val-password1" name="_confirmPassword" placeholder="Enter password again...">
+                                        <div class="input-group-append show-pass">
+                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        <button type="reset" class="btn btn-light">Cancel</button>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-primary">Change password</button>
+                                <button type="submit" class="btn btn-light">Cancel</button>
                             </form>
                         </div>
                     </div>

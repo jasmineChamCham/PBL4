@@ -25,6 +25,18 @@
   	<description></description>
   	<servlet-class>controller.DetailHostServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Overview_Controller</servlet-name>
+  	<display-name>Overview_Controller</display-name>
+  	<description></description>
+  	<servlet-class>controller.Overview_Controller</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ChangePasswordServlet</servlet-name>
+  	<display-name>ChangePasswordServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.ChangePasswordServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
@@ -36,5 +48,13 @@
   <servlet-mapping>
   	<servlet-name>DetailHostServlet</servlet-name>
   	<url-pattern>/DetailHostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Overview_Controller</servlet-name>
+  	<url-pattern>/Overview_Controller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ChangePasswordServlet</servlet-name>
+  	<url-pattern>/ChangePasswordServlet</url-pattern>
   </servlet-mapping>
 </web-app>
