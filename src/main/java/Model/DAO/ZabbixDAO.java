@@ -19,7 +19,7 @@ public class ZabbixDAO {
 	public static JSONObject request(JSONObject obj)
 	{
 		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost("http://192.168.1.54/zabbix/api_jsonrpc.php");
+		HttpPost httpPost = new HttpPost("http://192.168.1.78/zabbix/api_jsonrpc.php");
 		StringEntity entity;
 		try {
 			entity = new StringEntity(obj.toJSONString());
@@ -79,18 +79,18 @@ public class ZabbixDAO {
 		return obj;
 	}
 	
-	public static JSONObject getHistoryJSON(String auth, String itemid)
+	public static JSONObject getHistoryJSON(String auth, String itemid, int datatype)
 	{
 		JSONObject obj = new JSONObject();
 		obj.put("jsonrpc", "2.0");
 		obj.put("method", "history.get");
 		JSONObject temp = new JSONObject();
 		temp.put("output", "extend");
-		temp.put("history", 0);
+		temp.put("history", datatype);
 		temp.put("itemids", itemid);
 		temp.put("sortfield", "clock");
 		temp.put("sortorder", "DESC");
-		temp.put("limit", 10);
+		temp.put("limit", 1);
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Bean.Host" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +16,12 @@
     <link rel="stylesheet" href="./vendor/owc:\Users\WIN 10\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.htmll-carousel/css/owl.theme.default.min.css">
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
+    
 </head>
 
 <body>
-
+	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
+	%>
     <!--*******************
         Preloader start
     ********************-->
@@ -311,8 +315,30 @@
 
     <!-- Chart Morris plugin files -->
     <script src="./vendor/raphael/raphael.min.js"></script>
-    <script src="./vendor/morris/morris.min.js"></script>
-    <script src="./js/plugins-init/morris-init.js"></script>
+    <script src="./vendor/morris/morris.min.js"></script> 
+    <script language = "JavaScript">
+	    (function($) {
+	        "use strict"
+	
+	        
+	        Morris.Donut({
+	            element: 'morris_donught',
+	            data: [{
+	                label: "\xa0 \xa0 Available \xa0 \xa0",
+	                value: 5,
+	
+	            }, {
+	                label: "\xa0 \xa0 Not available \xa0 \xa0",
+	                value: 2
+	            }, {
+	                label: "\xa0 \xa0 Unknown \xa0 \xa0",
+	                value: 1
+	            }],
+	            resize: true,
+	            colors: ['rgb(112, 226, 145)', 'rgb(254, 102, 102)', 'rgb(197, 197, 197)']
+	        });
+	    })(jQuery);
+    </script>
 
     <!-- Vectormap -->
     <script src="./vendor/raphael/raphael.min.js"></script>
@@ -325,7 +351,7 @@
     <script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <!--  flot-chart js -->
-    <script src="./vendor/flot/jquery.flot.js"></script>
+    <script src="./vendor/flot/jquery.flot.js"> </script>
     <script src="./vendor/flot/jquery.flot.pie.js"></script>
     <script src="./vendor/flot/jquery.flot.resize.js"></script>
     <script src="./vendor/flot-spline/jquery.flot.spline.min.js"></script>

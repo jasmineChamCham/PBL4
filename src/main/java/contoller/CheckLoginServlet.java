@@ -1,6 +1,8 @@
 package contoller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.BO.ZabbixBO;
+import Model.Bean.Host;
 
 /**
  * Servlet implementation class CheckLoginServlet
@@ -39,14 +42,16 @@ public class CheckLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("_username");
 		String password = request.getParameter("_password");
-		HttpSession session = request.getSession();		
+		HttpSession session = request.getSession();
 		ZabbixBO loginBO = new ZabbixBO();
 		String auth = loginBO.checkLogin(username, password);
+		//System.out.println(auth);
 		if (auth != null)
 		{
 			session.setAttribute("auth", auth);
-			
-			//request.setAttribute("students", students);
+			ArrayList<Host> hosts = loginBO.getHosts(auth);
+			request.setAttribute("hosts", hosts);
+			request.setAttribute("auth", auth);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);
 		}
