@@ -3851,11 +3851,11 @@ input[type="button"].btn-block {
     box-shadow: 0 0 0 0.2rem rgba(103, 59, 183, 0.5); }
 
 .badge-success {
-  color: #212529;
-  background-color: #7ED321; }
+  color: #fff;
+  background-color: #70E291; }
   a.badge-success:hover, a.badge-success:focus {
-    color: #212529;
-    background-color: #64a71a; }
+    color: #fff;
+    background-color: #70E291; }
   a.badge-success:focus, a.badge-success.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(126, 211, 33, 0.5); }
@@ -3882,10 +3882,10 @@ input[type="button"].btn-block {
 
 .badge-danger {
   color: #fff;
-  background-color: #FF1616; }
+  background-color: #FE6666; }
   a.badge-danger:hover, a.badge-danger:focus {
     color: #fff;
-    background-color: #e20000; }
+    background-color: #FE6666; }
   a.badge-danger:focus, a.badge-danger.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(255, 22, 22, 0.5); }
@@ -3902,13 +3902,13 @@ input[type="button"].btn-block {
 
 .badge-dark {
   color: #fff;
-  background-color: #454545; }
+  background-color: #C5C5C5; }
   a.badge-dark:hover, a.badge-dark:focus {
     color: #fff;
-    background-color: #2c2c2c; }
+    background-color: #C5C5C5; }
   a.badge-dark:focus, a.badge-dark.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(69, 69, 69, 0.5); }
+    box-shadow: 0 0 0 0.2rem rgba(196, 196, 196, 0.5); }
 
 .jumbotron {
   padding: 2rem 1rem;
@@ -14809,7 +14809,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   color: #454545; }
 
 .alert-light {
-  background: #f8f9fa;
+  background: #EFE1FF;
   border-color: #f8f9fa;
   color: #454545; }
 
@@ -15027,7 +15027,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   background: #ADB6C7; }
 
 .badge-success {
-  background-color: #7ED321; }
+  background-color: #68B984; }
 
 .badge-info {
   background-color: #50E3C2; }
@@ -15039,10 +15039,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   background-color: #FFAA16; }
 
 .badge-danger {
-  background-color: #FF1616; }
+  background-color: #FE6666; }
 
 .badge-dark {
-  background-color: #454545; }
+  background-color: #C5C5C5; }
 
 .badge-light {
   background-color: #f8f9fa; }
