@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 
 
 import Model.Bean.Host;
-import Model.DAO.ZabbixDAO;
+import Model.DAO.HostDAO;
 
 class test { 
 
@@ -253,7 +253,7 @@ class test {
 			String ipaddress = r.getJSONObject(0).getString("ip");
 			String port = r.getJSONObject(0).getString("port");
 			Host host = new Host(hostip, hostName, active_available, ipaddress, port);
-			System.out.println(host.gethostId() + " " + host.getHostname() + " " + host.getAvailability() + " " + host.getIpAddress() + " " + host.getPort());
+			System.out.println(host.getHostID() + " " + host.getHostName() + " " + host.getAvailability() + " " + host.getIpAddress() + " " + host.getPort());
 			List<String> nameList = new ArrayList<String>();
 			List<String> idList = new ArrayList<String>();
 			JSONArray r1 = request(getItemsJSON(auth,hostip)).getJSONArray("result");

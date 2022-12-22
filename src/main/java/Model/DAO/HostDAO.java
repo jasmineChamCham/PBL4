@@ -14,7 +14,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-public class ZabbixDAO {
+public class HostDAO {
 
 	public static JSONObject request(JSONObject obj)
 	{
