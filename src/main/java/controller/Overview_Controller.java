@@ -37,7 +37,23 @@ public class Overview_Controller extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String username = request.getParameter("_username");
+		String password = request.getParameter("_password");
+		HttpSession session = request.getSession();
+		HostBO hostBO = new HostBO();
+		String auth = hostBO.checkLogin(username, password);
+		if (auth != null)
+		{
+			session.setAttribute("auth", auth);
+			ArrayList<Host> hosts = hostBO.getHosts(auth);
+			request.setAttribute("hosts", hosts);
+			request.setAttribute("auth", auth);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			response.sendRedirect("page-failLogin-error.jsp");
+		}
 	}
-
 }

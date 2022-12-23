@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	
+
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
 	   ArrayList<ArrayList<Double>> CPUutilizations = (ArrayList<ArrayList<Double>>) request.getAttribute("CPUutilizations");
 	   ArrayList<ArrayList<Double>> MemoryUtilizations = (ArrayList<ArrayList<Double>>) request.getAttribute("MemoryUtilizations");
@@ -47,7 +47,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -82,7 +82,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page_login.jsp" class="dropdown-item">
+                                    <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -105,7 +105,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>

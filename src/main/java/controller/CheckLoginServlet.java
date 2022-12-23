@@ -48,5 +48,4 @@ public class CheckLoginServlet extends HttpServlet {
 			response.sendRedirect("page-failLogin-error.jsp");
 		}
 	}
-
 }

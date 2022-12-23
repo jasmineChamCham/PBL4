@@ -42,7 +42,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -77,7 +77,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page_login.jsp" class="dropdown-item">
+                                    <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -100,7 +100,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
@@ -109,7 +109,7 @@
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -127,11 +127,11 @@
             
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
-                       
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>"></a>
-                        <button type="submit" class="btn btn-primary" onclick="location.href='create-host.jsp?auth=<%=request.getAttribute("auth")%>'">Create new host</button>
+                        <a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>">
+                        <button type="submit" class="btn btn-primary">Create new host</button>
+                        </a>
                     </div>
                 </div>
 
@@ -183,7 +183,7 @@
                                                             data-placement="top" title="Edit">
                                                             <i class="fa fa-pencil color-muted"></i> 
                                                         </a>
-                                                        <a href="confirm-delete.jsp?hostid=<%=hosts.get(i).getHostID()%>" data-toggle="tooltip"
+                                                        <a href="confirm-delete-host.jsp?hostid=<%=hosts.get(i).getHostID()%>" data-toggle="tooltip"
                                                             data-placement="top" title="Delete">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>
@@ -220,8 +220,6 @@
         <!--**********************************
            Support ticket button end
         ***********************************-->
-
-        
     </div>
     <!--**********************************
         Main wrapper end

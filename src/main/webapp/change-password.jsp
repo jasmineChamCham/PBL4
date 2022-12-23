@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Raspberry Monitoring Admin Dashboard</title>
+    <title>Change Password</title>
     <!-- Custom Stylesheet -->
     <link href="./css/style.css" rel="stylesheet">
 
@@ -39,7 +39,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -74,9 +74,9 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="dropdown-item">
+                                    <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -129,29 +129,25 @@
                         <div class="basic-form">
                             <form class="form-valide-with-icon" action="ChangePasswordServlet" method="post">
                                 <div class="form-group">
-                                    <label class="text-label">Password</label>
+                                    <label class="text-label">Password
+                                    <span class="text-danger">*</span>
+                                    </label>
                                     <div class="input-group transparent-append">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                         </div>
                                         <input type="password" class="form-control" id="val-password1" name="_password" placeholder="Choose a safe one...">
-                                        <div class="input-group-append show-pass">
-                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="text-label">Confirm password</label>
+                                    <label class="text-label">Confirm password
+                                    <span class="text-danger">*</span>
+                                    </label>
                                     <div class="input-group transparent-append">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                         </div>
                                         <input type="password" class="form-control" id="val-password1" name="_confirmPassword" placeholder="Enter password again...">
-                                        <div class="input-group-append show-pass">
-                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Change password</button>

@@ -21,19 +21,23 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Connect SSH</h4>
-                                    <form action="display-threads.jsp" method="post">
-                                        <div class="form-group">
-                                            <label><strong>Username</strong></label>
-                                            <input type="text" class="form-control" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="">
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">OK</button>
-                                        </div>
-                                    </form>
+	                                    <form action="CheckSSHLoginServlet" method="post">
+	                                        <div class="form-group">
+	                                            <label><strong>Username</strong></label>
+	                                            <input type="text" class="form-control" name="username" value="">
+	                                        </div>
+	                                        <div class="form-group">
+	                                            <label><strong>Host's IP address</strong></label>
+	                                            <input type="text" class="form-control" name="host" value="<%= (String)request.getParameter("ip-address")%>">
+	                                        </div>
+	                                        <div class="form-group">
+	                                            <label><strong>Password</strong></label>
+	                                            <input type="password" class="form-control" name="password" value="">
+	                                        </div>
+	                                        <div class="text-center">
+	                                            <button type="submit" class="btn btn-primary btn-block">OK</button>
+	                                        </div>
+	                                    </form>
                                 </div>
                             </div>
                         </div>

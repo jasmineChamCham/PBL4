@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Model.Bean.Process"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,20 +20,19 @@
 
 <body>
 
-    <!--*******************
+	<!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div> 
     <!--*******************
         Preloader end
     ********************-->
-
 
     <!--**********************************
         Main wrapper start
@@ -41,7 +43,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -76,9 +78,9 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page-login.html" class="dropdown-item">
+                                    <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -99,7 +101,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
@@ -108,7 +110,7 @@
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.html" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -126,10 +128,11 @@
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
                         <div class="alert alert-light notification">
-                            <form action="change-password.jsp" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> <%=request.getAttribute("mesg") %>!</strong></p>
-                                <p>Do you want to try changing password again?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
+                            <form action="DeleteHostServlet" method="post">
+                            	<input type="hidden" id="hostid" name="hostid" value="<%=request.getParameter("hostid")%>">
+                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
+                                <p>Are you sure you want to delete this item?</p>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
                                 <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
                             </form>
                         </div>
@@ -173,5 +176,4 @@
     <script src="./js/custom.min.js"></script>
     
 </body>
-
 </html>

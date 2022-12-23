@@ -39,7 +39,7 @@
                 Nav header start
             ***********************************-->
         <div class="nav-header">
-            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo">
             <img class="logo-abbr" src="./images/raspberry-pi.png" alt="" />
             <h2 style="color: #fff; margin-top: 12px; margin-left: 5px">PBL4</h2>
             </a>
@@ -88,7 +88,7 @@
                         <i class="mdi mdi-account"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="./page_login.jsp" class="dropdown-item">
+                        <a href="./page-login.jsp" class="dropdown-item">
                         <i class="fa fa-sign-out"></i>
                         <span class="ml-2">Log out</span>
                         </a>
@@ -111,7 +111,7 @@
             <ul class="metismenu" id="menu">
                 <li class="nav-label first">Main Menu</li>
                 <li>
-                <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false">
+                <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon icon-globe-2"></i>
                     <span class="nav-text">Overview</span>
                 </a>
@@ -124,7 +124,7 @@
                 </li>
                 <li class="nav-label first">Account</li>
                 <li>
-                <a href="change-password.jsp" aria-expanded="false">
+                <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon-key"></i>
                     <span class="nav-text">Change password</span>
                 </a>
@@ -149,10 +149,9 @@
                 </div>
                 <div
                     class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                    <a href="ssh-login.jsb"></a>
-                    <button type="submit" class="btn btn-primary" onclick="location.href='ssh-login.jsp'">
-                    Show thread
-                    </button>
+                    <a href="ssh-login.jsp?ip-address=<%=host.getIpAddress()%>">
+                    	<button type="submit" class="btn btn-primary">Show thread</button>
+                    </a>
                 </div>
             </div>
 
@@ -208,66 +207,80 @@
                                         <tr style="color: #737373; font-weight: 500">
                                             <th>Name</th>
                                             <th>Value</th>
+                                            <th>Unit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>Load avarage (1m)</td>
                                             <td><%=host.getLoadAverage1m()%></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Load avarage (5m)</td>
                                             <td><%=host.getLoadAverage5m()%></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Load avarage (15m)</td>
                                             <td><%=host.getLoadAverage15m()%></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Number of processes</td>
                                             <td><%=host.getNumberOfProcesses()%></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Number of CPUs</td>
                                             <td><%=host.getNumberOfCPUs() %></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>CPU Utilization</td>
-                                            <td><%=host.getCPUutilization() %></td>
+                                            <td><%=String.format("%,.2f",host.getCPUutilization()) %></td>
+                                            <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>System uptime</td>
                                             <td><%=host.getSystemUptime()%></td>
+                                            <td>seconds</td>
                                         </tr>
                                         <tr>
                                             <td>Total Space</td>
-                                            <td><%=host.getTotalSpace()%></td>
+                                            <td><%=String.format("%,.2f", (double)host.getTotalSpace()/1000000000)%></td>
+                                            <td>GB</td>
                                         </tr>
                                         <tr>
                                             <td>Used Space</td>
-                                            <td><%=host.getUsedSpace()%></td>
+                                            <td><%=String.format("%,.2f", (double)host.getUsedSpace()/1000000000)%></td>
+                                            <td>GB</td>
                                         </tr>
                                         <tr>
                                             <td>Space Utilization</td>
-                                            <td><%=host.getSpaceUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getSpaceUtilization())%></td>
+                                            <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>Disk Utilization</td>
-                                            <td><%=host.getDiskUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getDiskUtilization())%></td>
+                                            <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>Memory Utilization</td>
-                                            <td><%=host.getMemoryUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getMemoryUtilization())%></td>
+                                            <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>Available memory</td>
-                                            <td><%=host.getAvailableMemory()%></td>
+                                            <td><%=String.format("%,.2f", (double)host.getAvailableMemory()/1000000)%></td>
+                                            <td>MB</td>
                                         </tr>
                                         <tr>
                                             <td>Available memory in %</td>
-                                            <td><%=host.getAvailableMemoryInPS()%></td>
+                                            <td><%=String.format("%,.2f",host.getAvailableMemoryInPS())%></td>
+                                            <td>%</td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                             </div>
