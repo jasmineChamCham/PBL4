@@ -34,7 +34,7 @@ public class ChangePasswordServlet extends HttpServlet {
 		HostBO hostBO = new HostBO();
 		if (!confirmPassword.equals(password)) 
 		{
-			request.setAttribute("mesg", "Passwords do not match");
+			request.setAttribute("mesg", "Password and confirm password do not match.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("change-password-error.jsp");
 			dispatcher.forward(request, response);
 		} 

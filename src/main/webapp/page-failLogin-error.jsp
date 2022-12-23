@@ -18,11 +18,12 @@
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-5">
                     <div class="form-input-content text-center">
+                        <h1 class="error-text font-weight-bold">Error</h1>
+                        <h4 class="mt-4"><i class="fa fa-times-circle text-danger"></i> Login Fail</h4>
+                        <p>Your username or password is incorrect. Please try again!</p>
                         <div class="mb-5">
                             <a class="btn btn-primary" href="javascript:history.back()">Go back to previous page</a>
                         </div>
-                        <h4 class="mt-4"><i class="fa fa-times-circle text-danger"></i> Login Fail</h4>
-                        <p>Your username or password is incorrect. Please try again!</p>
                     </div>
                 </div>
             </div>
