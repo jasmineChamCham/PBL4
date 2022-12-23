@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Model.Bean.Process"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,20 +20,19 @@
 
 <body>
 
-    <!--*******************
+	<!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div> 
     <!--*******************
         Preloader end
     ********************-->
-
 
     <!--**********************************
         Main wrapper start
@@ -77,7 +80,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -107,7 +110,7 @@
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -116,6 +119,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
+
         <!--**********************************
             Content body start
         ***********************************-->
@@ -124,8 +128,12 @@
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
                         <div class="alert alert-light notification">
-                            <form action="DeleteHostServlet" method="post">
-								<input type="hidden" id="hostid" name="hostid" value="<%=request.getParameter("hostid")%>">
+                        	<%
+                        		List<Process> listProcesses = (ArrayList) session.getAttribute("listProcesses");
+                        		session.setAttribute("listProcesses", listProcesses);
+                        	%>
+                            <form action="KillProcessServlet" method="post">
+                            	<input type="hidden" name="ProcessId" value="<%= request.getParameter("ProcessId")%>">
                                 <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
                                 <p>Are you sure you want to delete this item?</p>
                                 <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>

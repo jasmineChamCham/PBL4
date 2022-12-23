@@ -13,7 +13,7 @@
     <link href="./css/style.css" rel="stylesheet">
 
 </head>
-
+  
 <body>
 
 	<% Host host = (Host) request.getAttribute("host");

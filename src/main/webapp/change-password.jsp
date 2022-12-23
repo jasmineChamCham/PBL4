@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Raspberry Monitoring Admin Dashboard</title>
+    <title>Change Password</title>
     <!-- Custom Stylesheet -->
     <link href="./css/style.css" rel="stylesheet">
 
@@ -76,7 +76,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
