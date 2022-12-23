@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,19 +12,18 @@
     <link href="./css/style.css" rel="stylesheet">
 
 </head>
-
 <body>
 
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> 
+    </div> -->
     <!--*******************
         Preloader end
     ********************-->
@@ -108,7 +105,7 @@
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -117,6 +114,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
+
         <!--**********************************
             Content body start
         ***********************************-->
@@ -124,12 +122,11 @@
             <div class="container-fluid">
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
-                        <div class="alert alert-light notification">
-                            <form action="display-processes.jsp" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Error Kill Process!</strong></p>
-                                <p>Do you want to try killing process again?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
-                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
+                        <div class="alert alert-danger notification">
+                            <form>
+                                <p class="notificaiton-title"><i class="fa fa-warning"></i><strong> Error Message</strong></p>
+                                <p><%=request.getAttribute("mesg")%> Please try again!</p>
+                                <a class="btn btn-danger" href="javascript:history.back()">OK</a>
                             </form>
                         </div>
                     </div>

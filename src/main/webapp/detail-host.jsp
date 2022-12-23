@@ -88,7 +88,7 @@
                         <i class="mdi mdi-account"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="./page_login.jsp" class="dropdown-item">
+                        <a href="./page-login.jsp" class="dropdown-item">
                         <i class="fa fa-sign-out"></i>
                         <span class="ml-2">Log out</span>
                         </a>
@@ -149,10 +149,9 @@
                 </div>
                 <div
                     class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                    <a href="ssh-login.jsb"></a>
-                    <button type="submit" class="btn btn-primary" onclick="location.href='ssh-login.jsp'">
-                    Show thread
-                    </button>
+                    <a href="ssh-login.jsp?ip-address=<%=host.getIpAddress()%>">
+                    	<button type="submit" class="btn btn-primary">Show thread</button>
+                    </a>
                 </div>
             </div>
 

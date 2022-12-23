@@ -22,7 +22,6 @@ public class ChangePasswordServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -35,7 +34,7 @@ public class ChangePasswordServlet extends HttpServlet {
 		if (!confirmPassword.equals(password)) 
 		{
 			request.setAttribute("mesg", "Password and confirm password do not match.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("change-password-error.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
 			dispatcher.forward(request, response);
 		} 
 		else 
@@ -52,7 +51,7 @@ public class ChangePasswordServlet extends HttpServlet {
 			else
 			{
 				request.setAttribute("mesg", mesg);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("change-password-error.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
 				dispatcher.forward(request, response);
 			}
 		}

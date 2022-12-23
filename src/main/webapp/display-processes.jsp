@@ -52,11 +52,10 @@
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-			<a href="index.jsp" class="brand-logo"> <img class="logo-abbr"
+			<a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" class="brand-logo"> <img class="logo-abbr"
 				src="./images/raspberry-pi.png" alt="">
 				<h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
 			</a>
-
 			<div class="nav-control">
 				<div class="hamburger">
 					<span class="line"></span><span class="line"></span><span
@@ -89,7 +88,7 @@
 									<i class="mdi mdi-account"></i>
 							</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page_login.jsp" class="dropdown-item"> <i
+									<a href="./page-login.jsp" class="dropdown-item"> <i
 										class="fa fa-sign-out"></i> <span class="ml-2">Log out</span>
 									</a>
 								</div></li>
@@ -109,14 +108,14 @@
 			<div class="quixnav-scroll">
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
-					<li><a href="index.jsp" aria-expanded="false"><i
+					<li><a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
 							class="icon icon-globe-2"></i> <span class="nav-text">Overview</span></a>
 					</li>
-					<li><a href="display-hosts.jsp" aria-expanded="false"><i
+					<li><a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
 							class="icon icon-app-store"></i> <span class="nav-text">Hosts</span></a>
 					</li>
 					<li class="nav-label first">Account</li>
-					<li><a href="change-password.jsp" aria-expanded="false"><i
+					<li><a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
 							class="icon-key"></i> <span class="nav-text">Change
 								password</span></a></li>
 				</ul>
@@ -141,20 +140,37 @@
 
 		<div class="content-body">
 			<div class="container-fluid">
+			
+				<div class="row grid">
+                    <div class="col-xl-4">
+                        <div class="grid-col">
+                        	<form action="DisplayProcessHighCpuServlet" action="get">
+	                        	<a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>">
+		                        <button type="submit" class="btn btn-primary"><i class="fa fa-list"></i>
+		                        Display processes utilizing high CPU</button>
+		                        </a>
+	                        </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="grid-col">
+	                        <form action="DisplayProcessHighMemoryServlet" action="get">
+	                        	<a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>">
+		                        <button type="submit" class="btn btn-primary"><i class="fa fa-list"></i>
+		                        Display processes utilizing high memory</button>
+		                        </a>
+	                        </form>
+                        </div>
+                    </div>
+                </div>
+                
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">Process</h4>
+								<h4 class="card-title">Processes</h4>
 							</div>
-							<div>
-								<form action="DisplayProcessHighCpuServlet" action="get">
-									<input type="submit" value="display processes high cpu">
-								</form>
-								<form action="DisplayProcessHighMemoryServlet" action="get">
-									<input type="submit" value="display processes high memory">
-								</form>
-							</div>
+							
 							<div class="card-body">
 								<div class="table-responsive">
 									<table class="table table-responsive-sm">
@@ -167,23 +183,23 @@
 										</thead>
 										<tbody align="center">
 											<%
-											for (int i=0; i<listProcesses.size(); i++){
+											for (int i = 0; i < listProcesses.size(); i++){
 												Process process = listProcesses.get(i);
 											%>
 											<tr>
 												<td><%= process.getProcessId() %></td>
 												<td><%= process.getProcessName() %></td>
-												<td><span> 
-													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>""
-														class="mr-4" data-toggle="tooltip" data-placement="top"
-														title="Delete"> 
+												<td>
+												<span> 
+													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>"> 
 														<i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
 													</a>
-												</span></td>
-												<%	
+												</span>
+												</td>
+											<%	
 											}
 											%> 
-											
+											</tr>
 										</tbody>
 									</table>
 								</div>
@@ -196,7 +212,6 @@
 		<!--**********************************
             Content body end
         ***********************************-->
-
 	</div>
 	<!--**********************************
         Main wrapper end
@@ -212,4 +227,3 @@
 
 </body>
 </html>
-html>

@@ -24,15 +24,15 @@
 	                                    <form action="CheckSSHLoginServlet" method="post">
 	                                        <div class="form-group">
 	                                            <label><strong>Username</strong></label>
-	                                            <input type="text" class="form-control" name="username" value="jasmine">
+	                                            <input type="text" class="form-control" name="username" value="">
 	                                        </div>
 	                                        <div class="form-group">
-	                                            <label><strong>Host</strong></label>
-	                                            <input type="text" class="form-control" name="host" value="192.168.1.151">
+	                                            <label><strong>Host's IP address</strong></label>
+	                                            <input type="text" class="form-control" name="host" value="<%= (String)request.getParameter("ip-address")%>">
 	                                        </div>
 	                                        <div class="form-group">
 	                                            <label><strong>Password</strong></label>
-	                                            <input type="password" class="form-control" name="password" value="123">
+	                                            <input type="password" class="form-control" name="password" value="">
 	                                        </div>
 	                                        <div class="text-center">
 	                                            <button type="submit" class="btn btn-primary btn-block">OK</button>

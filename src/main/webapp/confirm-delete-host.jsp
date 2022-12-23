@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Model.Bean.Process"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,22 +17,22 @@
     <link href="./css/style.css" rel="stylesheet">
 
 </head>
+
 <body>
 
-    <!--*******************
+	<!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div> 
     <!--*******************
         Preloader end
     ********************-->
-
 
     <!--**********************************
         Main wrapper start
@@ -75,7 +80,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -122,11 +127,13 @@
             <div class="container-fluid">
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
-                        <div class="alert alert-danger notification">
-                            <form action="change-password.jsp" method="">
-                                <p class="notificaiton-title"><i class="fa fa-warning"></i><strong> Error Message</strong></p>
-                                <p><%=request.getAttribute("mesg")%> Please try again!</p>
-                                <a class="btn btn-danger" href="javascript:history.back()">OK</a>
+                        <div class="alert alert-light notification">
+                            <form action="DeleteHostServlet" method="post">
+                            	<input type="hidden" id="hostid" name="hostid" value="<%=request.getParameter("hostid")%>">
+                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
+                                <p>Are you sure you want to delete this item?</p>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
+                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
                             </form>
                         </div>
                     </div>
@@ -169,5 +176,4 @@
     <script src="./js/custom.min.js"></script>
     
 </body>
-
 </html>

@@ -13,27 +13,14 @@ import javax.servlet.http.HttpSession;
 import Model.BO.ProcessBO;
 import Model.Bean.Process;
 
-/**
- * Servlet implementation class DisplayProcessHighCpuServlet
- */
 public class DisplayProcessHighCpuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DisplayProcessHighCpuServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session = request.getSession();
 			String username = session.getAttribute("username").toString();
@@ -45,20 +32,12 @@ public class DisplayProcessHighCpuServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			response.sendRedirect("page-error-login-ssh.jsp");
-			System.out.println("djsaf");
+			response.sendRedirect("page-failLogin-error.jsp");
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 }

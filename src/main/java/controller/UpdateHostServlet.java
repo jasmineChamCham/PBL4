@@ -13,25 +13,14 @@ import javax.servlet.http.HttpSession;
 import Model.BO.HostBO;
 import Model.Bean.Host;
 
-/**
- * Servlet implementation class UpdateHostServlet
- */
 public class UpdateHostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public UpdateHostServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String hostid = request.getParameter("hostid");
 		
 		HttpSession session = request.getSession();	
@@ -48,11 +37,13 @@ public class UpdateHostServlet extends HttpServlet {
 				request.setAttribute("auth", auth);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("update-host.jsp");
 				dispatcher.forward(request, response);
-//				System.out.println(host.getIpAddress());
 			}
 			else
 			{
-				System.out.println("hello?");
+				String mesg = "Host does not exist.";
+				request.setAttribute("mesg", mesg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
+				dispatcher.forward(request, response);
 			}
 		}
 		
@@ -74,19 +65,14 @@ public class UpdateHostServlet extends HttpServlet {
 			}
 			else
 			{
-				request.setAttribute("mesg", (mesg!=null)?(mesg+" "):("") +mesg1);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("page-error-change-password.jsp");
+				request.setAttribute("mesg", (mesg != null) ? (mesg + " ") : ("") + mesg1);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
 				dispatcher.forward(request, response);
 			}
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

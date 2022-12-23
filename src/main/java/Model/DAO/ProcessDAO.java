@@ -111,7 +111,6 @@ public class ProcessDAO {
 			String processName = processCmd[processCmd.length - 1];
 			Double processCpu = Double.parseDouble(processInfo[processInfo.length - 1].trim());
 			Process process = new Process(processId, processName, processCpu);
-			System.out.println(process);
 			result.add(process);
 		}
 		return result;
