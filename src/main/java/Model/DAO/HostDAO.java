@@ -172,7 +172,6 @@ public class HostDAO {
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);
-		System.out.println(obj);
 		return obj;
 	}
 	
