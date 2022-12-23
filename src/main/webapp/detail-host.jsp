@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Bean.Host" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +14,9 @@
     </head>
 
     <body>
+    	
+	<% Host host = (Host) request.getAttribute("host");
+	%>
         <!--*******************
             Preloader start
         ********************-->
@@ -34,7 +39,7 @@
                 Nav header start
             ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
             <img class="logo-abbr" src="./images/raspberry-pi.png" alt="" />
             <h2 style="color: #fff; margin-top: 12px; margin-left: 5px">PBL4</h2>
             </a>
@@ -106,13 +111,13 @@
             <ul class="metismenu" id="menu">
                 <li class="nav-label first">Main Menu</li>
                 <li>
-                <a href="index.jsp" aria-expanded="false">
+                <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon icon-globe-2"></i>
                     <span class="nav-text">Overview</span>
                 </a>
                 </li>
                 <li>
-                <a href="display-hosts.jsp" aria-expanded="false">
+                <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon icon-app-store"></i>
                     <span class="nav-text">Hosts</span>
                 </a>
@@ -168,7 +173,7 @@
                                                 class="form-control"
                                                 id="val-hostname"
                                                 name="val-hostname"
-                                                value="Zabbix server"
+                                                value="<%=host.getHostName()%>"
                                                 readonly
                                             />
                                         </div>
@@ -181,7 +186,7 @@
                                                 class="form-control"
                                                 id="val-ipaddress"
                                                 name="val-ipaddress"
-                                                value="127.0.0.1:10050"
+                                                value="<%=host.getIpAddress()%>:<%=host.getPort()%>"
                                                 readonly
                                             />
                                         </div>
@@ -207,17 +212,62 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Total space</td>
-                                            <td>19.02 GB</td>
+                                            <td>Load avarage (1m)</td>
+                                            <td><%=host.getLoadAverage1m()%></td>
                                         </tr>
                                         <tr>
-                                            <td>Total space</td>
-                                            <td>19.02 GB</td>
+                                            <td>Load avarage (5m)</td>
+                                            <td><%=host.getLoadAverage5m()%></td>
                                         </tr>
                                         <tr>
-                                            <td>Total space</td>
-                                            <td>19.02 GB</td>
+                                            <td>Load avarage (15m)</td>
+                                            <td><%=host.getLoadAverage15m()%></td>
                                         </tr>
+                                        <tr>
+                                            <td>Number of processes</td>
+                                            <td><%=host.getNumberOfProcesses()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Number of CPUs</td>
+                                            <td><%=host.getNumberOfCPUs() %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CPU Utilization</td>
+                                            <td><%=host.getCPUutilization() %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>System uptime</td>
+                                            <td><%=host.getSystemUptime()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Space</td>
+                                            <td><%=host.getTotalSpace()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Used Space</td>
+                                            <td><%=host.getUsedSpace()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Space Utilization</td>
+                                            <td><%=host.getSpaceUtilization()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Disk Utilization</td>
+                                            <td><%=host.getDiskUtilization()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Memory Utilization</td>
+                                            <td><%=host.getMemoryUtilization()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Available memory</td>
+                                            <td><%=host.getAvailableMemory()%></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Available memory in %</td>
+                                            <td><%=host.getAvailableMemoryInPS()%></td>
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

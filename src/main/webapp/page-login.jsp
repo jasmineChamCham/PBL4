@@ -2,16 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Login Page</title>
     <link href="./css/style.css" rel="stylesheet">
-
 </head>
-
 <body class="h-100">
     <div class="authincation h-100">
         <div class="container-fluid h-100">
@@ -43,8 +40,6 @@
             </div>
         </div>
     </div>
-
-
     <!--**********************************
         Scripts
     ***********************************-->
@@ -52,7 +47,5 @@
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
-
 </body>
-
 </html>

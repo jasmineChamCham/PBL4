@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Raspberry Monitoring Admin Dashboard</title>
+    <title>Change Password</title>
     <!-- Custom Stylesheet -->
     <link href="./css/style.css" rel="stylesheet">
 
@@ -74,7 +74,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page_login.jsp" class="dropdown-item">
+                                    <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Logout</span>
                                     </a>
@@ -97,11 +97,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -129,29 +129,25 @@
                         <div class="basic-form">
                             <form class="form-valide-with-icon" action="ChangePasswordServlet" method="post">
                                 <div class="form-group">
-                                    <label class="text-label">Password</label>
+                                    <label class="text-label">Password
+                                    <span class="text-danger">*</span>
+                                    </label>
                                     <div class="input-group transparent-append">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                         </div>
                                         <input type="password" class="form-control" id="val-password1" name="_password" placeholder="Choose a safe one...">
-                                        <div class="input-group-append show-pass">
-                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="text-label">Confirm password</label>
+                                    <label class="text-label">Confirm password
+                                    <span class="text-danger">*</span>
+                                    </label>
                                     <div class="input-group transparent-append">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                                         </div>
                                         <input type="password" class="form-control" id="val-password1" name="_confirmPassword" placeholder="Enter password again...">
-                                        <div class="input-group-append show-pass">
-                                            <span class="input-group-text"> <i class="fa fa-eye-slash"></i>
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Change password</button>

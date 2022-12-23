@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="Model.Bean.Host" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,8 @@
   
 <body>
 
+	<% Host host = (Host) request.getAttribute("host");
+	%>
     <!--*******************
         Preloader start
     ********************-->
@@ -39,7 +42,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -97,11 +100,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -129,11 +132,19 @@
                         <div class="basic-form">
                             <form>
                                 <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-hostid">Host id
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-12">
+                                        <input type="text" class="form-control" name="val-hostid" value="<%=host.getHostID()%>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-hostname">Host name
                                         <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control" name="val-hostname" value="">
+                                        <input type="text" class="form-control" name="val-hostname" value="<%=host.getHostName()%>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -142,7 +153,6 @@
                                     </label>
                                     <div class="col-lg-12" class="bootstrap-badge">
                                         <span class="badge badge-pill badge-info" style="background-color: #FFCAC8;">Linux by Zabbix agent</span>
-                                        <span class="badge badge-pill badge-info" style="background-color: #FFDBA4;">Linux by Zabbix agent active</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -159,7 +169,7 @@
                                         <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control" name="val-ipaddress" value="">
+                                        <input type="text" class="form-control" name="val-ipaddress" value="<%=host.getIpAddress()%>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -167,7 +177,7 @@
                                         <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-12">
-                                        <input type="text" class="form-control" name="val-port" value="">
+                                        <input type="text" class="form-control" name="val-port" value="<%=host.getPort()%>">
                                     </div>
                                 </div>
                                 <div class="form-group row">

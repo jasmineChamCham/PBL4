@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,19 +12,18 @@
     <link href="./css/style.css" rel="stylesheet">
 
 </head>
-
 <body>
 
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> 
+    </div> -->
     <!--*******************
         Preloader end
     ********************-->
@@ -41,7 +38,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="index.html" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -76,7 +73,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page-login.jsp" class="dropdown-item">
+                                    <a href="./page-login.html" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -99,16 +96,16 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.html" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -125,12 +122,11 @@
             <div class="container-fluid">
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
-                        <div class="alert alert-light notification">
+                        <div class="alert alert-danger notification">
                             <form action="change-password.jsp" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Error Change Password!</strong></p>
-                                <p>Do you want to try changing password again?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
-                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
+                                <p class="notificaiton-title"><i class="fa fa-warning"></i><strong> Error Message</strong></p>
+                                <p><%=request.getAttribute("mesg")%>. Please try again!</p>
+                                <a class="btn btn-danger" href="javascript:history.back()">OK</a>
                             </form>
                         </div>
                     </div>
