@@ -136,7 +136,7 @@ public class HostDAO {
 		return obj;
 	}
 	
-	public static JSONObject createHostJSON(String auth, String hostname, String ip)
+	public static JSONObject createHostJSON(String auth, String hostname, String ip, String port)
 	{
 		JSONObject obj = new JSONObject();
 		obj.put("jsonrpc", "2.0");
@@ -150,18 +150,18 @@ public class HostDAO {
 		zinterface.put("useip", "1");
 		zinterface.put("ip", ip);
 		zinterface.put("dns", "");
-		zinterface.put("port", "10050");
+		zinterface.put("port", port);
 		temp.put("interfaces", zinterface);
 		
 		JSONArray groups = new JSONArray();
-		JSONObject group = new JSONObject();
-		group.put("groupid", 5);
-		groups.add(group);
-		group.clear();
-		group.put("groupid", 10);
-		groups.add(group);
+		JSONObject group1 = new JSONObject();
+		group1.put("groupid", 5);
+		groups.add(group1);
+		JSONObject group2 = new JSONObject();
+		group2.put("groupid", 10);
+		groups.add(group2);
 		//System.out.print(group);
-		temp.put("groups", group);
+		temp.put("groups", groups);
 
 		JSONArray templates = new JSONArray();
 		JSONObject template = new JSONObject();
@@ -172,6 +172,7 @@ public class HostDAO {
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);
+		System.out.println(obj);
 		return obj;
 	}
 	

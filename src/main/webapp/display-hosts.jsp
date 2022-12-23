@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Bean.Host" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +16,8 @@
 </head>
 
 <body>
-
+	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
+	%>
     <!--*******************
         Preloader start
     ********************-->
@@ -39,7 +42,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -97,11 +100,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -121,13 +124,14 @@
         ***********************************-->
         <div class="content-body">
             <div class="container-fluid">
+            
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                        
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <a href="create-host.jsp"></a>
-                        <button type="submit" class="btn btn-primary" onclick="location.href='create-host.jsp'">Create new host</button>
+                        <a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>"></a>
+                        <button type="submit" class="btn btn-primary" onclick="location.href='create-host.jsp?auth=<%=request.getAttribute("auth")%>'">Create new host</button>
                     </div>
                 </div>
 
@@ -151,16 +155,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                       		<% for (int i = 0; i < hosts.size(); i++) { %>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Zabbix Server</td>
-                                                <td>127.0.0.1:10050</td>
+                                                <th><%=i+1%></th>
+                                                <td><%=hosts.get(i).getHostName()%></td>
+                                                <td><%=hosts.get(i).getIpAddress()%>:<%=hosts.get(i).getPort()%></td>
                                                 <td>
-                                                    <span class="badge badge-success">Available</span>
+                                                    <%if (hosts.get(i).getAvailability().equals("0")){%>
+                                                    	<span class="badge badge-dark">Unknown</span>
+                                                    <%} else if (hosts.get(i).getAvailability().equals("1")){ %>
+                                                    	<span class="badge badge-success">Available</span>
+                                                    <%} else if (hosts.get(i).getAvailability().equals("2")){ %>
+                                                    	<span class="badge badge-danger">Not available</span>
+                                                    <%} %>
                                                 </td>
                                                 <td>
                                                     <span>
-                                                        <a href="detail-host.jsp" class="mr-4" data-toggle="tooltip"
+                                                        <a href="DetailHostServlet?auth=<%=request.getAttribute("auth")%>&hostid=<%=hosts.get(i).getHostID()%>" class="mr-4" data-toggle="tooltip"
                                                             data-placement="top" title="View detail">
                                                             <i class="fa fa-eye"></i> 
                                                         </a>
@@ -168,71 +179,18 @@
                                                 </td>
                                                 <td>
                                                     <span>
-                                                        <a href="update-host.jsp" class="mr-4" data-toggle="tooltip"
+                                                        <a href="UpdateHostServlet?hostid=<%=hosts.get(i).getHostID()%>" class="mr-4" data-toggle="tooltip"
                                                             data-placement="top" title="Edit">
                                                             <i class="fa fa-pencil color-muted"></i> 
                                                         </a>
-                                                        <a href="confirm-delete.jsp" data-toggle="tooltip"
+                                                        <a href="confirm-delete.jsp?hostid=<%=hosts.get(i).getHostID()%>" data-toggle="tooltip"
                                                             data-placement="top" title="Delete">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>
                                                     </span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Zabbix Server</td>
-                                                <td>192.168.1.44:10050</td>
-                                                <td><span class="badge badge-danger">Not available</span>
-                                                </td>
-                                                <td>
-                                                    <span>
-                                                        <a href="detail-host.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="View detail">
-                                                            <i class="fa fa-eye"></i> 
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span>
-                                                        <a href="update-host.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit">
-                                                            <i class="fa fa-pencil color-muted"></i> 
-                                                        </a>
-                                                        <a href="confirm-delete.jsp" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete">
-                                                            <i class="fa fa-trash-o"></i>
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Zabbix Server</td>
-                                                <td>192.168.1.48:10050</td>
-                                                <td><span class="badge badge-dark">Unknown</span>
-                                                </td>
-                                                <td>
-                                                    <span>
-                                                        <a href="detail-host.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="View detail">
-                                                            <i class="fa fa-eye"></i> 
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                                <td>
-                                                    <span>
-                                                        <a href="update-host.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Edit">
-                                                            <i class="fa fa-pencil color-muted"></i> 
-                                                        </a>
-                                                        <a href="confirm-delete.jsp" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete">
-                                                            <i class="fa fa-trash-o"></i>
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                            </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </div>

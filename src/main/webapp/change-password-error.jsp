@@ -96,11 +96,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.html" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.html" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -125,7 +125,7 @@
                         <div class="alert alert-danger notification">
                             <form action="change-password.jsp" method="">
                                 <p class="notificaiton-title"><i class="fa fa-warning"></i><strong> Error Message</strong></p>
-                                <p>Password and confirm password do not match. Please try again!</p>
+                                <p><%=request.getAttribute("mesg")%>. Please try again!</p>
                                 <a class="btn btn-danger" href="javascript:history.back()">OK</a>
                             </form>
                         </div>

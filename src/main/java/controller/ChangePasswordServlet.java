@@ -34,19 +34,27 @@ public class ChangePasswordServlet extends HttpServlet {
 		HostBO hostBO = new HostBO();
 		if (!confirmPassword.equals(password)) 
 		{
+			request.setAttribute("mesg", "Passwords do not match");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("change-password-error.jsp");
 			dispatcher.forward(request, response);
 		} 
 		else 
 		{	
-//			System.out.println(password);
-//			System.out.print(auth);
-			int isSuccessful = UserBO.changePassword(auth, "1", password);
-			ArrayList<Host> hosts = hostBO.getHosts(auth);
-			request.setAttribute("hosts", hosts);
-			request.setAttribute("auth", auth);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+			String mesg = UserBO.changePassword(auth, "1", password);
+			if (mesg == null)
+			{
+				ArrayList<Host> hosts = hostBO.getHosts(auth);
+				request.setAttribute("hosts", hosts);
+				request.setAttribute("auth", auth);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
+			}
+			else
+			{
+				request.setAttribute("mesg", mesg);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("change-password-error.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 	}
 }

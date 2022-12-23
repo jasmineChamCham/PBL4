@@ -20,6 +20,7 @@
 	
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
 	%>
+	
     <!--*******************
         Preloader start
     ********************-->
@@ -44,7 +45,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="index.jsp" class="brand-logo">
+            <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" class="brand-logo">
                 <img class="logo-abbr" src="./images/raspberry-pi.png" alt="">
                 <h2 style="color: #fff; margin-top: 12px; margin-left: 5px;">PBL4</h2>
             </a>
@@ -102,16 +103,16 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
                     <li>
-                        <a href="change-password.jsp" aria-expanded="false"><i class="icon-key"></i>
+                        <a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon-key"></i>
                         <span class="nav-text">Change password</span></a>
                     </li>
                 </ul>
@@ -276,11 +277,11 @@
 		int avai = 0, unavai = 0, unknown = 0;
 		for (int i = 0; i < hosts.size(); i++)
 		{
-			if ((hosts.get(0).getAvailability()).equals("0"))
+			if ((hosts.get(i).getAvailability()).equals("0"))
 				unknown++;
-			else if ((hosts.get(0).getAvailability()).equals("1"))
+			else if ((hosts.get(i).getAvailability()).equals("1"))
 				avai++;
-			else if ((hosts.get(0).getAvailability()).equals("2"))
+			else if ((hosts.get(i).getAvailability()).equals("2"))
 				unavai++;
 		}
 	%>

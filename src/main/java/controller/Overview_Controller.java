@@ -21,7 +21,15 @@ public class Overview_Controller extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String auth = request.getParameter("auth");
+		HttpSession session = request.getSession();
+		HostBO overviewBO = new HostBO();
+		session.setAttribute("auth", auth);
+		ArrayList<Host> hosts = overviewBO.getHosts(auth);
+		request.setAttribute("hosts", hosts);
+		request.setAttribute("auth", auth);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,5 +53,4 @@ public class Overview_Controller extends HttpServlet {
 			response.sendRedirect("page-failLogin-error.jsp");
 		}
 	}
-
 }
