@@ -32,8 +32,8 @@ public class ProcessDAO {
 				return true;
 			else
 				return false;
-		} catch (JSchException e) {
-			System.out.println("hehe");
+		} 
+		catch (JSchException e) {
 			return false;
 		}
 
@@ -116,8 +116,7 @@ public class ProcessDAO {
 		return result;
 	}
 	
-	public static List<Process> getProcessesWithHighMemory(String username, String password, String host)
-			throws Exception {
+	public static List<Process> getProcessesWithHighMemory(String username, String password, String host) throws Exception {
 		List<Process> result = new ArrayList<>();
 		String command = "ps -eo pid,cmd,%mem --sort=-%mem | head";
 		String response = sshExecute(username, password, host, command);

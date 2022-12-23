@@ -19,7 +19,7 @@ public class HostDAO {
 	public static JSONObject request(JSONObject obj)
 	{
 		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost("http://192.168.1.78/zabbix/api_jsonrpc.php");
+		HttpPost httpPost = new HttpPost("http://192.168.1.21/zabbix/api_jsonrpc.php");
 		StringEntity entity;
 		try {
 			entity = new StringEntity(obj.toJSONString());
