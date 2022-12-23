@@ -26,6 +26,10 @@ public class Overview_Controller extends HttpServlet {
 		HostBO overviewBO = new HostBO();
 		session.setAttribute("auth", auth);
 		ArrayList<Host> hosts = overviewBO.getHosts(auth);
+		ArrayList<ArrayList<Double>> CPUutilizations = overviewBO.getCPUutilization(auth);
+		ArrayList<ArrayList<Double>> MemoryUtilizations = overviewBO.getMemoryUtilization(auth);
+		request.setAttribute("CPUutilizations", CPUutilizations);
+		request.setAttribute("MemoryUtilizations", MemoryUtilizations);
 		request.setAttribute("hosts", hosts);
 		request.setAttribute("auth", auth);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
