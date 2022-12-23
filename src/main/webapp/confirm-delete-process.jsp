@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Arrays"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Model.Bean.Process"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +13,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Raspberry Monitoring Admin Dashboard</title>
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="./css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!--*******************
+	<!--*******************
         Preloader start
     ********************-->
     <div id="preloader">
@@ -24,11 +29,10 @@
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div>
+    </div> 
     <!--*******************
         Preloader end
     ********************-->
-
 
     <!--**********************************
         Main wrapper start
@@ -76,7 +80,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -121,63 +125,20 @@
         ***********************************-->
         <div class="content-body">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Threads</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-responsive-sm">
-                                        <thead align="center">
-                                            <tr style="color: #737373; font-weight: 500;">
-                                                <th>Thread ID</th>
-                                                <th>Thread name</th>
-                                                <th>Kill thread</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody align="center">
-                                            <tr>
-                                                <td>1310</td>
-                                                <td>chrome.exe</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="confirm-delete.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete">
-                                                            <i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1001</td>
-                                                <td>msteams.exe</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="confirm-delete.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete">
-                                                            <i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2925</td>
-                                                <td>vscode.exe</td>
-                                                <td>
-                                                    <span>
-                                                        <a href="confirm-delete.jsp" class="mr-4" data-toggle="tooltip"
-                                                            data-placement="top" title="Delete">
-                                                            <i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
-                                                        </a>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                <div class="col-lg-12">
+                    <div class="card-body" style="text-align: center;">
+                        <div class="alert alert-light notification">
+                        	<%
+                        		List<Process> listProcesses = (ArrayList) session.getAttribute("listProcesses");
+                        		session.setAttribute("listProcesses", listProcesses);
+                        	%>
+                            <form action="KillProcessServlet" method="post">
+                            	<input type="hidden" name="ProcessId" value="<%= request.getParameter("ProcessId")%>">
+                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
+                                <p>Are you sure you want to delete this item?</p>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
+                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -219,4 +180,4 @@
     <script src="./js/custom.min.js"></script>
     
 </body>
-</html>html>
+</html>

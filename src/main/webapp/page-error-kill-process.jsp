@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,13 +20,13 @@
     <!--*******************
         Preloader start
     ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
+    </div> 
     <!--*******************
         Preloader end
     ********************-->
@@ -75,7 +76,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./page_login.jsp" class="dropdown-item">
+                                    <a href="./page-login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
                                         <span class="ml-2">Log out</span>
                                     </a>
@@ -125,10 +126,10 @@
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
                         <div class="alert alert-light notification">
-                            <form action="" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
-                                <p>Are you sure you want to delete this item?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
+                            <form action="display-processes.jsp" method="">
+                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Error Kill Process!</strong></p>
+                                <p>Do you want to try killing process again?</p>
+                                <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
                                 <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
                             </form>
                         </div>
@@ -172,4 +173,5 @@
     <script src="./js/custom.min.js"></script>
     
 </body>
+
 </html>

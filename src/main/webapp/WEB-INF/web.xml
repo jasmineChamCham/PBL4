@@ -22,6 +22,30 @@
   	<description></description>
   	<servlet-class>controller.ChangePasswordServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>KillProcessServlet</servlet-name>
+  	<display-name>KillProcessServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.KillProcessServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckSSHLoginServlet</servlet-name>
+  	<display-name>CheckSSHLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.CheckSSHLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DisplayProcessHighCpuServlet</servlet-name>
+  	<display-name>DisplayProcessHighCpuServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.DisplayProcessHighCpuServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DisplayProcessHighMemoryServlet</servlet-name>
+  	<display-name>DisplayProcessHighMemoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.DisplayProcessHighMemoryServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
@@ -33,5 +57,21 @@
   <servlet-mapping>
   	<servlet-name>ChangePasswordServlet</servlet-name>
   	<url-pattern>/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>KillProcessServlet</servlet-name>
+  	<url-pattern>/KillProcessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckSSHLoginServlet</servlet-name>
+  	<url-pattern>/CheckSSHLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DisplayProcessHighCpuServlet</servlet-name>
+  	<url-pattern>/DisplayProcessHighCpuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DisplayProcessHighMemoryServlet</servlet-name>
+  	<url-pattern>/DisplayProcessHighMemoryServlet</url-pattern>
   </servlet-mapping>
 </web-app>

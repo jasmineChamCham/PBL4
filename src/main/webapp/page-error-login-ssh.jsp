@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Error: Login Fail</title>
+    <title>Error: Login SSH Fail</title>
     <link href="./css/style.css" rel="stylesheet">
     
-</head> 
+</head>
 
 <body class="h-100">      
     <div class="authincation h-100">
@@ -22,8 +22,8 @@
                             <a class="btn btn-primary" href="javascript:history.back()">Go back to previous page</a>
                         </div>
                         <h4 class="mt-4"><i class="fa fa-times-circle text-danger"></i> Login Fail</h4>
-                        <p>Your username or password is incorrect. Please try again!</p>
-                    </div>
+                        <p>Your username, host or password is incorrect. Please try again!</p>
+                    </div> 
                 </div>
             </div>
         </div>

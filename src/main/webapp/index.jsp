@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	
+
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
 	%>
     <!--*******************

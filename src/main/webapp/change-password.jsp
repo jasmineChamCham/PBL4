@@ -76,7 +76,7 @@
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./page_login.jsp" class="dropdown-item">
                                         <i class="fa fa-sign-out"></i>
-                                        <span class="ml-2">Log out</span>
+                                        <span class="ml-2">Logout</span>
                                     </a>
                                 </div>
                             </li>
