@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -125,12 +123,11 @@
             <div class="container-fluid">
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
-                        <div class="alert alert-light notification">
+                        <div class="alert alert-success notification">
                             <form action="change-password.jsp" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Error Change Password!</strong></p>
-                                <p>Do you want to try changing password again?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
-                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
+                                <p class="notificaiton-title"><i class="fa fa-check"></i><strong> Success Message</strong></p>
+                                <p>Delete successfully!</p>
+                                <a class="btn btn-success" href="javascript:history.back()">OK</a>
                             </form>
                         </div>
                     </div>
@@ -171,7 +168,5 @@
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/quixnav-init.js"></script>
     <script src="./js/custom.min.js"></script>
-    
 </body>
-
 </html>
