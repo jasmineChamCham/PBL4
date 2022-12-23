@@ -97,7 +97,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
@@ -151,7 +151,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Change password</button>
-                                <button type="submit" class="btn btn-light">Cancel</button>
+                                <button type="reset" class="btn btn-light">Cancel</button>
                             </form>
                         </div>
                     </div>

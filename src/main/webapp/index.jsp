@@ -19,6 +19,8 @@
 <body>
 
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
+	   ArrayList<ArrayList<Double>> CPUutilizations = (ArrayList<ArrayList<Double>>) request.getAttribute("CPUutilizations");
+	   ArrayList<ArrayList<Double>> MemoryUtilizations = (ArrayList<ArrayList<Double>>) request.getAttribute("MemoryUtilizations");
 	%>
 	
     <!--*******************
@@ -203,14 +205,14 @@
                     </div>
 
                     <div class="col-lg-6 col-sm-6">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Realtime CPU Utilization</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="flotRealtime1" class="flot-chart"></div>
-                            </div>
-                        </div>
+                    	<div class="card">
+	                        <div class="card-body text-center">
+	                            <h4 class="card-title">CPU Utilization</h4>
+	                        </div>
+	                        <div class="card-body">
+	                            <div id="flotLine1" class="flot-chart"></div>
+	                        </div>
+	                    </div>
                     </div>
                 </div>
 
@@ -245,13 +247,13 @@
 
                     <div class="col-lg-6 col-sm-6">
                         <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Realtime Memory Utilization</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="flotRealtime2" class="flot-chart"></div>
-                            </div>
-                        </div>
+	                        <div class="card-body text-center">
+	                            <h4 class="card-title">Memory Utilization</h4>
+	                        </div>
+	                        <div class="card-body">
+	                            <div id="flotLine2" class="flot-chart"></div>
+	                        </div>
+	                    </div>
                     </div>
                 </div>
         </div>
@@ -285,6 +287,21 @@
 				unavai++;
 		}
 	%>
+	
+	<input type="hidden" id="n" name="n" value="<%=CPUutilizations.size()%>">
+	<% for (int i = 0; i < CPUutilizations.size(); i++){ 
+		ArrayList<Double> CPUutilization = CPUutilizations.get(i);
+		ArrayList<Double> MemoryUtilization = MemoryUtilizations.get(i);
+		%>
+		<input type = "hidden" id="hostname[<%=i%>]" name = "hostname[<%=i%>]" value = "<%=hosts.get(i).getHostName()%>">
+		<%
+			for (int j = CPUutilization.size()-1; j >=0; j--){
+			int value = (CPUutilization.get(j)!=null)?(int)Math.round(CPUutilization.get(j)):0;%>
+			<input type="hidden" id="CPUutilization[<%=i%>][<%=CPUutilization.size()-j-1%>]" name="CPUutilization[<%=i%>][<%=j%>]" value="<%=value%>">
+			<% value = (MemoryUtilization.get(j)!=null)?(int)Math.round(MemoryUtilization.get(j)):0;%>
+			<input type="hidden" id="MemoryUtilization[<%=i%>][<%=CPUutilization.size()-j-1%>]" name="MemoryUtilization[<%=i%>][<%=j%>]" value="<%=value%>">
+	<%}}%>
+		
 	<input type="hidden" id="avai" name="avai" value="<%=avai%>">
 	<input type="hidden" id="unavai" name="unavai" value="<%=unavai%>">
 	<input type="hidden" id="unknown" name="unknown" value="<%=unknown%>">
@@ -329,7 +346,6 @@
 
     <script src="./vendor/circle-progress/circle-progress.min.js"></script>
     <script src="./vendor/chart.js/Chart.bundle.min.js"></script>
-
     <script src="./vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <!--  flot-chart js -->
@@ -337,7 +353,94 @@
     <script src="./vendor/flot/jquery.flot.pie.js"></script>
     <script src="./vendor/flot/jquery.flot.resize.js"></script>
     <script src="./vendor/flot-spline/jquery.flot.spline.min.js"></script>
-    <script src="./js/plugins-init/flot-init.js"></script>
+    <script>
+    (function($) {
+        "use strict"
+        
+    	var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
+    	var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
+    	var dt1 = [];
+    	var dt2 = [];
+    	for (var i = 0; i < document.getElementById("n").value; i+=1) {
+    		var temp = [];
+    		var temp1 = [];
+    		for (var j = 9; j >= 3; j-= 1)
+   			{
+   				temp.push([j, document.getElementById("CPUutilization["+i+"]["+j+"]").value]);
+   				temp1.push([j, document.getElementById("MemoryUtilization["+i+"]["+j+"]").value]);
+   			}
+    		dt1.push({
+    			data: temp,
+    			label: document.getElementById("hostname["+i+"]").value,
+    		});
+    		dt2.push({
+    			data: temp1,
+    			label: document.getElementById("hostname["+i+"]").value,
+    		});
+    	}
+    	var dt = [
+    		{
+    			data: newCust,
+    			label: 'New Customer',
+    			color: '#f21780'
+    		},
+    		{
+    			data: retCust,
+    			label: 'Returning Customer',
+    			color: '#fd712c'
+    		}];
+    	
+    	var layout = {
+    			series: {
+    				lines: {
+    					show: false
+    				},
+    				splines: {
+    					show: true,
+    					tension: 0.4,
+    					lineWidth: 1,
+    					//fill: 0.4
+    				},
+    				shadowSize: 0
+    			},
+    			points: {
+    				show: false,
+    			},
+    			legend: {
+    				noColumns: 1,
+    				position: 'nw'
+    			},
+    			grid: {
+    				hoverable: true,
+    				clickable: true,
+    				borderColor: '#ddd',
+    				borderWidth: 0,
+    				labelMargin: 5,
+    				backgroundColor: 'transparent'
+    			},
+    			yaxis: {
+    				min: 0,
+    				max: 100,
+    				color: 'transparent',
+    				font: {
+    					size: 10,
+    					color: '#000'
+    				}
+    			},
+    			xaxis: {
+    				color: 'transparent',
+    				font: {
+    					size: 10,
+    					color: '#fff'
+    				}
+    			}
+    		};
+    	var plot = $.plot($('#flotLine1'), dt1,layout);
+
+    	var plot = $.plot($('#flotLine2'), dt2, layout);
+
+    })(jQuery);
+    </script>
 
 
     <!-- Owl Carousel -->

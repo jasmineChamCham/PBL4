@@ -34,7 +34,11 @@ public class CheckLoginServlet extends HttpServlet {
 		{
 			session.setAttribute("auth", auth);
 			ArrayList<Host> hosts = hostBO.getHosts(auth);
+			ArrayList<ArrayList<Double>> CPUutilizations = hostBO.getCPUutilization(auth);
+			ArrayList<ArrayList<Double>> MemoryUtilizations = hostBO.getMemoryUtilization(auth);
 			request.setAttribute("hosts", hosts);
+			request.setAttribute("CPUutilizations", CPUutilizations);
+			request.setAttribute("MemoryUtilizations", MemoryUtilizations);
 			request.setAttribute("auth", auth);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 			dispatcher.forward(request, response);

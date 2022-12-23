@@ -169,14 +169,14 @@
 												<td><%= process.getProcessId() %></td>
 												<td><%= process.getProcessName() %></td>
 												<td><%= process.getProcessMemory() %></td>
-												<td><span> 
-													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>""
-														class="mr-4" data-toggle="tooltip" data-placement="top"
-														title="Delete"> 
+												<td>
+												<span> 
+													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>"> 
 														<i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
 													</a>
-												</span></td>
-												<%	
+												</span>
+												</td>
+											<%	
 											}
 											%> 
 											

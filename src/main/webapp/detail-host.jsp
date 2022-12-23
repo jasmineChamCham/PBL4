@@ -238,7 +238,7 @@
                                         </tr>
                                         <tr>
                                             <td>CPU Utilization</td>
-                                            <td><%=host.getCPUutilization() %></td>
+                                            <td><%=String.format("%,.2f",host.getCPUutilization()) %></td>
                                             <td>%</td>
                                         </tr>
                                         <tr>
@@ -258,17 +258,17 @@
                                         </tr>
                                         <tr>
                                             <td>Space Utilization</td>
-                                            <td><%=host.getSpaceUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getSpaceUtilization())%></td>
                                             <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>Disk Utilization</td>
-                                            <td><%=host.getDiskUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getDiskUtilization())%></td>
                                             <td>%</td>
                                         </tr>
                                         <tr>
                                             <td>Memory Utilization</td>
-                                            <td><%=host.getMemoryUtilization()%></td>
+                                            <td><%=String.format("%,.2f",host.getMemoryUtilization())%></td>
                                             <td>%</td>
                                         </tr>
                                         <tr>
@@ -278,7 +278,7 @@
                                         </tr>
                                         <tr>
                                             <td>Available memory in %</td>
-                                            <td><%=host.getAvailableMemoryInPS()%></td>
+                                            <td><%=String.format("%,.2f",host.getAvailableMemoryInPS())%></td>
                                             <td>%</td>
                                         </tr>
                                     </tbody>

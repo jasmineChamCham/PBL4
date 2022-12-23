@@ -79,7 +79,7 @@ public class HostDAO {
 		return obj;
 	}
 	
-	public static JSONObject getHistoryJSON(String auth, String itemid, int datatype)
+	public static JSONObject getHistoryJSON(String auth, String itemid, int datatype, int limit)
 	{
 		JSONObject obj = new JSONObject();
 		obj.put("jsonrpc", "2.0");
@@ -90,7 +90,7 @@ public class HostDAO {
 		temp.put("itemids", itemid);
 		temp.put("sortfield", "clock");
 		temp.put("sortorder", "DESC");
-		temp.put("limit", 1);
+		temp.put("limit", limit);
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);
@@ -172,7 +172,6 @@ public class HostDAO {
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);
-		System.out.println(obj);
 		return obj;
 	}
 	
