@@ -19,14 +19,10 @@ public class UserBO {
 		return auth;
 	}
 	
-	public static int changePassword(String auth, String userid, String passwd)  {
-//		System.out.println("r1 " + UserDAO.changePasswordJSON(auth, userid, passwd));
-		JSONObject r = UserDAO.request(UserDAO.changePasswordJSON(auth, userid, passwd));
-//		System.out.println("r UserBO: " + r);
+	public static String changePassword(String auth, String userid, String passwd)  {
 		JSONObject r_error = UserDAO.request(UserDAO.changePasswordJSON(auth, userid, passwd)).getJSONObject("error");
-//		System.out.println("r_error : " + r_error);
-		if (r_error != null) return 1; // successful
-		else return 0; // fail to change
+		if (r_error == null) return null; // successful
+		else return r_error.getString("data"); // fail to change
 	}
 	
 	public static List<User> getAllUsers(String auth) {

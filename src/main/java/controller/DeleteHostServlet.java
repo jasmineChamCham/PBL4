@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.BO.HostBO;
-import Model.BO.UserBO;
 import Model.Bean.Host;
 
 /**
- * Servlet implementation class changePasswordServlet
+ * Servlet implementation class DeleteHostServlet
  */
-public class ChangePasswordServlet extends HttpServlet {
+public class DeleteHostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChangePasswordServlet() {
+    public DeleteHostServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,41 +32,36 @@ public class ChangePasswordServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String password = request.getParameter("_password");
-		String confirmPassword = request.getParameter("_confirmPassword");
+
+		String hostid = request.getParameter("hostid").toString();
+		
 		HttpSession session = request.getSession();	
 		String auth = session.getAttribute("auth").toString();
-		HostBO hostBO = new HostBO();
-		if (! confirmPassword.equals(password)) {
-			request.setAttribute("mesg", "Passwords do not match");
+		
+		HostBO DeleteHostBO = new HostBO();
+
+		String mesg = DeleteHostBO.DeleteHost(auth, hostid);
+		if (mesg == null)
+		{
+			ArrayList<Host> hosts = DeleteHostBO.getHosts(auth);
+			request.setAttribute("hosts", hosts);
+			request.setAttribute("auth", auth);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("display-hosts.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			request.setAttribute("mesg", mesg);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("page-error-change-password.jsp");
 			dispatcher.forward(request, response);
-		} else {	
-			String mesg = UserBO.changePassword(auth, "1", password);
-			if (mesg == null)
-			{
-				ArrayList<Host> hosts = hostBO.getHosts(auth);
-				request.setAttribute("hosts", hosts);
-				request.setAttribute("auth", auth);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-				dispatcher.forward(request, response);
-			}
-			else
-			{
-				request.setAttribute("mesg", mesg);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("page-error-change-password.jsp");
-				dispatcher.forward(request, response);
-			}
 		}
-		
 	}
 
 }

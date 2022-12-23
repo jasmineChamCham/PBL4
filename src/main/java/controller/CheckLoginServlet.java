@@ -30,7 +30,6 @@ public class CheckLoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		HostBO hostBO = new HostBO();
 		String auth = hostBO.checkLogin(username, password);
-		System.out.println(auth);
 		if (auth != null)
 		{
 			session.setAttribute("auth", auth);

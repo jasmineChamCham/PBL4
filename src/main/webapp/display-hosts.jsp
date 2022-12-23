@@ -104,7 +104,7 @@
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -124,13 +124,14 @@
         ***********************************-->
         <div class="content-body">
             <div class="container-fluid">
+            
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                        
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <a href="create-host.jsp"></a>
-                        <button type="submit" class="btn btn-primary" onclick="location.href='create-host.jsp'">Create new host</button>
+                        <a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>"></a>
+                        <button type="submit" class="btn btn-primary" onclick="location.href='create-host.jsp?auth=<%=request.getAttribute("auth")%>'">Create new host</button>
                     </div>
                 </div>
 
@@ -164,7 +165,7 @@
                                                     	<span class="badge badge-dark">Unknown</span>
                                                     <%} else if (hosts.get(i).getAvailability().equals("1")){ %>
                                                     	<span class="badge badge-success">Available</span>
-                                                    <%} else if (hosts.get(i).getAvailability().equals("1")){ %>
+                                                    <%} else if (hosts.get(i).getAvailability().equals("2")){ %>
                                                     	<span class="badge badge-danger">Not available</span>
                                                     <%} %>
                                                 </td>
@@ -178,11 +179,11 @@
                                                 </td>
                                                 <td>
                                                     <span>
-                                                        <a href="update-host.jsp" class="mr-4" data-toggle="tooltip"
+                                                        <a href="UpdateHostServlet?hostid=<%=hosts.get(i).getHostID()%>" class="mr-4" data-toggle="tooltip"
                                                             data-placement="top" title="Edit">
                                                             <i class="fa fa-pencil color-muted"></i> 
                                                         </a>
-                                                        <a href="confirm-delete.jsp" data-toggle="tooltip"
+                                                        <a href="confirm-delete.jsp?hostid=<%=hosts.get(i).getHostID()%>" data-toggle="tooltip"
                                                             data-placement="top" title="Delete">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>

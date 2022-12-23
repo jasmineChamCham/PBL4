@@ -20,6 +20,7 @@
 	
 	<% ArrayList<Host> hosts = (ArrayList<Host>) request.getAttribute("hosts");
 	%>
+	
     <!--*******************
         Preloader start
     ********************-->
@@ -276,11 +277,11 @@
 		int avai = 0, unavai = 0, unknown = 0;
 		for (int i = 0; i < hosts.size(); i++)
 		{
-			if ((hosts.get(0).getAvailability()).equals("0"))
+			if ((hosts.get(i).getAvailability()).equals("0"))
 				unknown++;
-			else if ((hosts.get(0).getAvailability()).equals("1"))
+			else if ((hosts.get(i).getAvailability()).equals("1"))
 				avai++;
-			else if ((hosts.get(0).getAvailability()).equals("2"))
+			else if ((hosts.get(i).getAvailability()).equals("2"))
 				unavai++;
 		}
 	%>

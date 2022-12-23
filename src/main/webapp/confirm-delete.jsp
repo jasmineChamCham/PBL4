@@ -98,11 +98,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.jsp" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.jsp" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -116,7 +116,6 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-
         <!--**********************************
             Content body start
         ***********************************-->
@@ -125,10 +124,11 @@
                 <div class="col-lg-12">
                     <div class="card-body" style="text-align: center;">
                         <div class="alert alert-light notification">
-                            <form action="" method="">
+                            <form action="DeleteHostServlet" method="post">
+								<input type="hidden" id="hostid" name="hostid" value="<%=request.getParameter("hostid")%>">
                                 <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
                                 <p>Are you sure you want to delete this item?</p>
-                                <button class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
                                 <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
                             </form>
                         </div>

@@ -117,7 +117,7 @@
                 </a>
                 </li>
                 <li>
-                <a href="display-hosts.jsp" aria-expanded="false">
+                <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
                     <i class="icon icon-app-store"></i>
                     <span class="nav-text">Hosts</span>
                 </a>

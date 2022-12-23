@@ -99,11 +99,11 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li>
-                        <a href="index.html" aria-expanded="false"><i class="icon icon-globe-2"></i>
+                        <a href="Overview_Controller?auth=<%=request.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-globe-2"></i>
                         <span class="nav-text">Overview</span></a>
                     </li>
                     <li>
-                        <a href="display-hosts.html" aria-expanded="false"><i class="icon icon-app-store"></i>
+                        <a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i class="icon icon-app-store"></i>
                         <span class="nav-text">Hosts</span></a>
                     </li>
                     <li class="nav-label first">Account</li>
@@ -127,7 +127,7 @@
                     <div class="card-body" style="text-align: center;">
                         <div class="alert alert-light notification">
                             <form action="change-password.jsp" method="">
-                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Error Change Password!</strong></p>
+                                <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> <%=request.getAttribute("mesg") %>!</strong></p>
                                 <p>Do you want to try changing password again?</p>
                                 <button class="btn btn-primary" style="margin-right: 20px;">Yes</button>
                                 <a class="btn btn-light" href="javascript:history.back()">Cancel</a>

@@ -37,6 +37,24 @@
   	<description></description>
   	<servlet-class>controller.ChangePasswordServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddHostServlet</servlet-name>
+  	<display-name>AddHostServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.AddHostServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateHostServlet</servlet-name>
+  	<display-name>UpdateHostServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.UpdateHostServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteHostServlet</servlet-name>
+  	<display-name>DeleteHostServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.DeleteHostServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
@@ -56,5 +74,17 @@
   <servlet-mapping>
   	<servlet-name>ChangePasswordServlet</servlet-name>
   	<url-pattern>/ChangePasswordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddHostServlet</servlet-name>
+  	<url-pattern>/AddHostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateHostServlet</servlet-name>
+  	<url-pattern>/UpdateHostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteHostServlet</servlet-name>
+  	<url-pattern>/DeleteHostServlet</url-pattern>
   </servlet-mapping>
 </web-app>
