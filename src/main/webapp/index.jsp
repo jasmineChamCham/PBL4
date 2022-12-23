@@ -297,9 +297,9 @@
 		<%
 			for (int j = CPUutilization.size()-1; j >=0; j--){
 			int value = (CPUutilization.get(j)!=null)?(int)Math.round(CPUutilization.get(j)):0;%>
-			<input type="hidden" id="CPUutilization[<%=i%>][<%=j%>]" name="CPUutilization[<%=i%>][<%=j%>]" value="<%=value%>">
+			<input type="hidden" id="CPUutilization[<%=i%>][<%=CPUutilization.size()-j-1%>]" name="CPUutilization[<%=i%>][<%=j%>]" value="<%=value%>">
 			<% value = (MemoryUtilization.get(j)!=null)?(int)Math.round(MemoryUtilization.get(j)):0;%>
-			<input type="hidden" id="MemoryUtilization[<%=i%>][<%=j%>]" name="MemoryUtilization[<%=i%>][<%=j%>]" value="<%=value%>">
+			<input type="hidden" id="MemoryUtilization[<%=i%>][<%=CPUutilization.size()-j-1%>]" name="MemoryUtilization[<%=i%>][<%=j%>]" value="<%=value%>">
 	<%}}%>
 		
 	<input type="hidden" id="avai" name="avai" value="<%=avai%>">
@@ -364,7 +364,7 @@
     	for (var i = 0; i < document.getElementById("n").value; i+=1) {
     		var temp = [];
     		var temp1 = [];
-    		for (var j = 6; j >=0; j-=1)
+    		for (var j = 9; j >= 3; j-= 1)
    			{
    				temp.push([j, document.getElementById("CPUutilization["+i+"]["+j+"]").value]);
    				temp1.push([j, document.getElementById("MemoryUtilization["+i+"]["+j+"]").value]);
@@ -424,7 +424,7 @@
     				color: 'transparent',
     				font: {
     					size: 10,
-    					color: '#fff'
+    					color: '#000'
     				}
     			},
     			xaxis: {

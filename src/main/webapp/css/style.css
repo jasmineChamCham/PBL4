@@ -13289,7 +13289,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .legendLabel {
   font-size: 0.825rem;
   padding-left: .5rem;
-  color: #fff; }
+  color: black; }
 
 .flotTip {
   background: #000;
