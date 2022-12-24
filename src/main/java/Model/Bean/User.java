@@ -3,14 +3,22 @@ package Model.Bean;
 import java.util.Objects;
 
 public class User {
-	public int userid;
-	public String username;
-	public int autoLogin;
-	public String autoLogout;
-	public String refresh; // Automatic refresh period
-	
+	private int userid;
+	private String username;
+	private String password;
+	private int autoLogin;
+	private String autoLogout;
+	private String refresh;
+
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public User(int userid, String username, String password) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.password = password;
 	}
 
 	public User(int userid, String username, int autoLogin, String autoLogout, String refresh) {
@@ -36,6 +44,14 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getAutoLogin() {
@@ -64,7 +80,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(autoLogin, autoLogout, refresh, userid, username);
+		return Objects.hash(password, userid, username);
 	}
 
 	@Override
@@ -76,14 +92,13 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return autoLogin == other.autoLogin && Objects.equals(autoLogout, other.autoLogout)
-				&& Objects.equals(refresh, other.refresh) && userid == other.userid
+		return Objects.equals(password, other.password) && userid == other.userid
 				&& Objects.equals(username, other.username);
 	}
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", username=" + username + ", autoLogin=" + autoLogin + ", autoLogout="
-				+ autoLogout + ", refresh=" + refresh + "]";
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + "]";
 	}
+
 }

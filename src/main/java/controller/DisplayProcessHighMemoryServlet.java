@@ -32,7 +32,7 @@ public class DisplayProcessHighMemoryServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} catch (Exception e) {
-			response.sendRedirect("page-failLogin-error.jsp");
+			response.sendRedirect("page-error-display-processes.jsp");
 			e.printStackTrace();
 		}
 	}
