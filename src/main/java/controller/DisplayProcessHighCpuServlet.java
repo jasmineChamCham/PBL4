@@ -30,9 +30,8 @@ public class DisplayProcessHighCpuServlet extends HttpServlet {
 			session.setAttribute("listProcessesWithHighCpu", listProcessesWithHighCpu);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes-with-high-cpu.jsp");
 			dispatcher.forward(request, response);
-
 		} catch (Exception e) {
-			response.sendRedirect("page-failLogin-error.jsp");
+			response.sendRedirect("page-error-display-processes.jsp");
 			e.printStackTrace();
 		}
 	}

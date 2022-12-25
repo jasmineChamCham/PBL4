@@ -103,14 +103,13 @@ public class ProcessDAO {
 			String processString = listProcesses[i];
 			String[] processInfo = processString.split("\\s+");
 			String processId = processInfo[1].trim();
-			String cmd = "";
+			String processName = "";
 			for (int j = 2; j <= processInfo.length - 2; j++) {
-				cmd += processInfo[j].trim() + " ";
+				processName += processInfo[j].trim() + " ";
 			}
-			String[] processCmd = cmd.split("/");
-			String processName = processCmd[processCmd.length - 1];
 			Double processCpu = Double.parseDouble(processInfo[processInfo.length - 1].trim());
 			Process process = new Process(processId, processName, processCpu);
+			System.out.println(process);
 			result.add(process);
 		}
 		return result;
@@ -126,20 +125,12 @@ public class ProcessDAO {
 			String processString = listProcesses[i];
 			String[] processInfo = processString.split("\\s+");
 			String processId = processInfo[1].trim();
-			String cmd = "";
+			String processName = "";
 			for (int j = 2; j <= processInfo.length - 2; j++) {
-				cmd += processInfo[j].trim() + " ";
+				processName += processInfo[j].trim() + " ";
 			}
-			String[] processCmd = cmd.split("/");
-			String processName = processCmd[processCmd.length - 1].trim();
 			Float processMemory = Float.parseFloat(processInfo[processInfo.length - 1].trim());
-			Process process = new Process();
-			if (processName.equals("")) {
-				process = new Process(processId, cmd, processMemory);
-			}
-			else {
-				process = new Process(processId, processName, processMemory);
-			}
+			Process process = new Process(processId, processName, processMemory);
 			System.out.println(process);
 			result.add(process);
 		}

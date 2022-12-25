@@ -38,7 +38,5 @@ public class UserBO {
 			list.add(new User(userid, username, autoLogin, autoLogout, refresh));
 		}
 		return list;
-	}
-	
-	
+	}	
 }
