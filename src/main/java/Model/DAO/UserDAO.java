@@ -18,7 +18,7 @@ public class UserDAO {
 	public static JSONObject request(JSONObject obj)
 	{
 		CloseableHttpClient client = HttpClients.createDefault();
-		HttpPost httpPost = new HttpPost("http://192.168.1.137/zabbix/api_jsonrpc.php");
+		HttpPost httpPost = new HttpPost("http://192.168.1.151/zabbix/api_jsonrpc.php");
 		StringEntity entity;
 		try {
 			entity = new StringEntity(obj.toJSONString());

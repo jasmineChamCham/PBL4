@@ -31,8 +31,8 @@ public class AddHostServlet extends HttpServlet {
 		String auth = request.getParameter("auth");
 		HttpSession session = request.getSession();
 		HostBO addhostBO = new HostBO();
-		String mess = addhostBO.GreateHost(auth, hostname, ipaddress, port);
-		if (mess == null)
+		String mesg = addhostBO.GreateHost(auth, hostname, ipaddress, port);
+		if (mesg == null)
 		{
 			ArrayList<Host> hosts = addhostBO.getHosts(auth);
 			request.setAttribute("hosts", hosts);
@@ -42,7 +42,10 @@ public class AddHostServlet extends HttpServlet {
 		}
 		else
 		{
-			System.out.println(mess);
+			request.setAttribute("mesg", mesg);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
+			dispatcher.forward(request, response);
+			System.out.println(mesg);
 		}
 	}
 
