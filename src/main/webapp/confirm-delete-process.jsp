@@ -131,13 +131,19 @@
                         	<%
                         		List<Process> listProcesses = (ArrayList) session.getAttribute("listProcesses");
                         		session.setAttribute("listProcesses", listProcesses);
+                        		String username = session.getAttribute("username").toString();
+                    			String password = session.getAttribute("password").toString();
+                    			String host = session.getAttribute("host").toString();
+                    			session.setAttribute("username", username);
+                    			session.setAttribute("password", password);
+                    			session.setAttribute("host", host);
                         	%>
                             <form action="KillProcessServlet" method="post">
                             	<input type="hidden" name="ProcessId" value="<%= request.getParameter("ProcessId")%>">
                                 <p class="notificaiton-title"><i class="bi bi-chat-dots-fill"></i><strong> Message!</strong></p>
                                 <p>Are you sure you want to delete this item?</p>
-                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Confirm</button>
-                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px;" name="confirm">Confirm</button>
+                                <a class="btn btn-light" href="javascript:history.back()">Cancel</a>                                
                             </form>
                         </div>
                     </div>

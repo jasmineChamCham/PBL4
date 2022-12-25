@@ -145,20 +145,16 @@
                     <div class="col-xl-4">
                         <div class="grid-col">
                         	<form action="DisplayProcessHighCpuServlet" action="get">
-	                        	<a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>">
 		                        <button type="submit" class="btn btn-primary"><i class="fa fa-list"></i>
 		                        Display processes utilizing high CPU</button>
-		                        </a>
 	                        </form>
                         </div>
                     </div>
                     <div class="col-xl-8">
                         <div class="grid-col">
 	                        <form action="DisplayProcessHighMemoryServlet" action="get">
-	                        	<a href="create-host.jsp?auth=<%=request.getAttribute("auth")%>">
 		                        <button type="submit" class="btn btn-primary"><i class="fa fa-list"></i>
 		                        Display processes utilizing high memory</button>
-		                        </a>
 	                        </form>
                         </div>
                     </div>

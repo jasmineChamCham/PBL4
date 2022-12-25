@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.BO.ProcessBO;
+import Model.Bean.Process;
 
 public class KillProcessServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,10 +33,12 @@ public class KillProcessServlet extends HttpServlet {
 			String password = session.getAttribute("password").toString();
 			String host = session.getAttribute("host").toString();
 			ProcessBO.killProcess(username, password, host, ProcessId);
-//			System.out.println("username : " + username);
-//			System.out.println("password : " + password);
-//			System.out.println("host : " + host);
-//			System.out.println("ProcessId : " + ProcessId);
+			System.out.println("username : " + username);
+			System.out.println("password : " + password);
+			System.out.println("host : " + host);
+			System.out.println("ProcessId : " + ProcessId);
+			List<Process> listProcesses = ProcessBO.getAllProcesses(username, password, host);
+			session.setAttribute("listProcesses", listProcesses);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes.jsp");
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
