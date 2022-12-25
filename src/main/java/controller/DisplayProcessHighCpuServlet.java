@@ -31,7 +31,6 @@ public class DisplayProcessHighCpuServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes-with-high-cpu.jsp");
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
-//			response.sendRedirect("page-error-display-processes.jsp");
 			request.setAttribute("mesg", "Unable to display processes.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("error-message.jsp");
 			dispatcher.forward(request, response);
