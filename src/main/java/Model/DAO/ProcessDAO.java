@@ -109,7 +109,7 @@ public class ProcessDAO {
 			}
 			Double processCpu = Double.parseDouble(processInfo[processInfo.length - 1].trim());
 			Process process = new Process(processId, processName, processCpu);
-			System.out.println(process);
+//			System.out.println(process);
 			result.add(process);
 		}
 		return result;
@@ -131,7 +131,7 @@ public class ProcessDAO {
 			}
 			Float processMemory = Float.parseFloat(processInfo[processInfo.length - 1].trim());
 			Process process = new Process(processId, processName, processMemory);
-			System.out.println(process);
+//			System.out.println(process);
 			result.add(process);
 		}
 		return result;
