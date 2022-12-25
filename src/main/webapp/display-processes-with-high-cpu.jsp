@@ -171,7 +171,7 @@
 												<td><%= process.getProcessCpu() %></td>
 												<td>
 												<span> 
-													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>"> 
+													<a href="confirm-delete-process-high-cpu.jsp?ProcessId=<%= process.getProcessId()%>"> 
 														<i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
 													</a>
 												</span>

@@ -78,6 +78,18 @@
   	<description></description>
   	<servlet-class>controller.DeleteHostServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>KillProcessHighCpuServlet</servlet-name>
+  	<display-name>KillProcessHighCpuServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.KillProcessHighCpuServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>KillProcessHighMemoryServlet</servlet-name>
+  	<display-name>KillProcessHighMemoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>controller.KillProcessHighMemoryServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CheckLoginServlet</servlet-name>
   	<url-pattern>/CheckLoginServlet</url-pattern>
@@ -125,5 +137,13 @@
   <servlet-mapping>
   	<servlet-name>DeleteHostServlet</servlet-name>
   	<url-pattern>/DeleteHostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>KillProcessHighCpuServlet</servlet-name>
+  	<url-pattern>/KillProcessHighCpuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>KillProcessHighMemoryServlet</servlet-name>
+  	<url-pattern>/KillProcessHighMemoryServlet</url-pattern>
   </servlet-mapping>
 </web-app>
