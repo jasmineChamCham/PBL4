@@ -27,7 +27,7 @@ public class DisplayProcessHighMemoryServlet extends HttpServlet {
 			String password = session.getAttribute("password").toString();
 			String host = session.getAttribute("host").toString();
 			List<Process> listProcessesWithHighMemory = ProcessBO.getProcessesWithHighMemory(username, password, host);
-			session.setAttribute("listProcessesWithHighMemory", listProcessesWithHighMemory);
+			session.setAttribute("listProcesses", listProcessesWithHighMemory);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes-with-high-memory.jsp");
 			dispatcher.forward(request, response);
 

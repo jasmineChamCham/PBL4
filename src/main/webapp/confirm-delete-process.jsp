@@ -134,9 +134,11 @@
                         		String username = session.getAttribute("username").toString();
                     			String password = session.getAttribute("password").toString();
                     			String host = session.getAttribute("host").toString();
+                    			String destination = session.getAttribute("destination").toString();
                     			session.setAttribute("username", username);
                     			session.setAttribute("password", password);
                     			session.setAttribute("host", host);
+                    			session.setAttribute("destination", destination);
                         	%>
                             <form action="KillProcessServlet" method="post">
                             	<input type="hidden" name="ProcessId" value="<%= request.getParameter("ProcessId")%>">

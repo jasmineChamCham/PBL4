@@ -146,11 +146,12 @@
 			String username = session.getAttribute("username").toString();
 			String password = session.getAttribute("password").toString();
 			String host = session.getAttribute("host").toString();
-        	List<Process> listProcessesWithHighMemory = (ArrayList) session.getAttribute("listProcessesWithHighMemory"); 
+        	List<Process> listProcessesWithHighMemory = (ArrayList) session.getAttribute("listProcesses"); 
 			session.setAttribute("listProcessesWithHighMemory", listProcessesWithHighMemory);
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
 			session.setAttribute("host", host);
+			session.setAttribute("destination", "memory");
         %>
 
 		<div class="content-body">
@@ -183,7 +184,7 @@
 												<td><%= process.getProcessMemory() %></td>
 												<td>
 												<span> 
-													<a href="confirm-delete-process-high-memory.jsp?ProcessId=<%= process.getProcessId()%>"> 
+													<a href="confirm-delete-process.jsp?ProcessId=<%= process.getProcessId()%>"> 
 														<i class="fa fa-times" style="color: rgb(215, 21, 21);"></i>
 													</a>
 												</span>

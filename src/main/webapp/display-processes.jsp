@@ -136,6 +136,7 @@
 			session.setAttribute("username", username);
 			session.setAttribute("password", password);
 			session.setAttribute("host", host);
+			session.setAttribute("destination", "");
         %>
 
 		<div class="content-body">

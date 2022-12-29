@@ -35,15 +35,14 @@ public class CheckSSHLoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession();
 		boolean isSSHConnected = ProcessBO.sshConnect(username, password, host);
-
 		try 
 		{
 			if (isSSHConnected) 
 			{
+				List<Process> listProcesses = ProcessBO.getAllProcesses(username, password, host);
 				session.setAttribute("username", username);
 				session.setAttribute("password", password);
-				session.setAttribute("host", host);
-				List<Process> listProcesses = ProcessBO.getAllProcesses(username, password, host);
+				session.setAttribute("host", host);				
 				session.setAttribute("listProcesses", listProcesses);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes.jsp");
 				dispatcher.forward(request, response);

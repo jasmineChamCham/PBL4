@@ -27,7 +27,11 @@ public class DisplayProcessHighCpuServlet extends HttpServlet {
 			String password = session.getAttribute("password").toString();
 			String host = session.getAttribute("host").toString();
 			List<Process> listProcessesWithHighCpu = ProcessBO.getProcessesWithHighCpu(username, password, host);
-			session.setAttribute("listProcessesWithHighCpu", listProcessesWithHighCpu);
+			System.out.println("Display list cpu servlet -> ");
+		    for (int i=0; i<listProcessesWithHighCpu.size(); i++) {
+				System.out.println(listProcessesWithHighCpu.get(i));
+			}
+			session.setAttribute("listProcesses", listProcessesWithHighCpu);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("display-processes-with-high-cpu.jsp");
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
