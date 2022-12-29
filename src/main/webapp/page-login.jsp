@@ -19,7 +19,7 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Login</h4>
-                                    <form action="CheckLoginServlet" method="post">
+                                    <form action="CheckLoginServlet" method="post"> 
                                         <div class="form-group">
                                             <label><strong>Username</strong></label>
                                             <input type="text" class="form-control" name="_username" value="">

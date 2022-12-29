@@ -74,7 +74,6 @@ public class UserDAO {
 		obj.put("params", temp);
 		obj.put("auth", auth);
 		obj.put("id", 1);
-//		System.out.println("obj UserDAO :" + obj);
 		return obj;
 	}
 	

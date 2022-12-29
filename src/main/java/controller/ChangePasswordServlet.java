@@ -39,13 +39,18 @@ public class ChangePasswordServlet extends HttpServlet {
 		} 
 		else 
 		{	
+			System.out.println("auth: " + auth);
+			System.out.println("password: " + password);
 			String mesg = UserBO.changePassword(auth, "1", password);
 			if (mesg == null)
 			{
-				ArrayList<Host> hosts = hostBO.getHosts(auth);
-				request.setAttribute("hosts", hosts);
-				request.setAttribute("auth", auth);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+//				ArrayList<Host> hosts = hostBO.getHosts(auth);
+//				request.setAttribute("hosts", hosts);
+//				request.setAttribute("auth", auth);
+//				RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+//				dispatcher.forward(request, response);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("change-password.jsp");
 				dispatcher.forward(request, response);
 			}
 			else
