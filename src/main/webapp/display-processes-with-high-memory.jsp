@@ -60,8 +60,9 @@
 
 			<div class="nav-control">
 				<div class="hamburger">
-					<span class="line"></span><span class="line"></span><span
-						class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
 				</div>
 			</div>
 		</div>
@@ -85,15 +86,17 @@
 						</div>
 
 						<ul class="navbar-nav header-right">
-							<li class="nav-item dropdown header-profile"><a
-								class="nav-link" href="#" role="button" data-toggle="dropdown">
-									<i class="mdi mdi-account"></i>
-							</a>
+							<li class="nav-item dropdown header-profile">
+								<a class="nav-link" href="#" role="button" data-toggle="dropdown">
+								<i class="mdi mdi-account"></i>
+								</a>
 								<div class="dropdown-menu dropdown-menu-right">
-									<a href="./page-login.jsp" class="dropdown-item"> <i
-										class="fa fa-sign-out"></i> <span class="ml-2">Log out</span>
+									<a href="./page-login.jsp" class="dropdown-item"> 
+									<i class="fa fa-sign-out"></i> 
+									<span class="ml-2">Log out</span>
 									</a>
-								</div></li>
+								</div>
+							</li>
 						</ul>
 					</div>
 				</nav>
@@ -110,16 +113,25 @@
 			<div class="quixnav-scroll">
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
-					<li><a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
-							class="icon icon-globe-2"></i> <span class="nav-text">Overview</span></a>
+					<li>
+						<a href="Overview_Controller?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
+						<i class="icon icon-globe-2"></i> 
+						<span class="nav-text">Overview</span>
+						</a>
 					</li>
-					<li><a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
-							class="icon icon-app-store"></i> <span class="nav-text">Hosts</span></a>
+					<li>
+						<a href="DisplayHostServlet?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
+						<i class="icon icon-app-store"></i>
+						<span class="nav-text">Hosts</span>
+						</a>
 					</li>
 					<li class="nav-label first">Account</li>
-					<li><a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false"><i
-							class="icon-key"></i> <span class="nav-text">Change
-								password</span></a></li>
+					<li>
+						<a href="change-password.jsp?auth=<%=session.getAttribute("auth")%>" aria-expanded="false">
+						<i class="icon-key"></i>
+						<span class="nav-text">Change password</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -147,7 +159,7 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title">Process</h4>
+								<h4 class="card-title">Process Utilizing Most Memory</h4>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">

@@ -441,8 +441,7 @@
 
     })(jQuery);
     </script>
-
-
+    
     <!-- Owl Carousel -->
     <script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
@@ -450,10 +449,6 @@
     <script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
     <script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
     <script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
-
-
     <script src="./js/dashboard/dashboard-1.js"></script>
-
 </body>
-
 </html>

@@ -46,8 +46,9 @@
 
             <div class="nav-control">
             <div class="hamburger">
-                <span class="line"></span><span class="line"></span
-                ><span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
             </div>
             </div>
         </div>
@@ -150,7 +151,7 @@
                 <div
                     class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <a href="ssh-login.jsp?ip-address=<%=host.getIpAddress()%>">
-                    	<button type="submit" class="btn btn-primary">Show thread</button>
+                    	<button type="submit" class="btn btn-primary">Show processes</button>
                     </a>
                 </div>
             </div>
